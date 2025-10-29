@@ -12,7 +12,8 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/desc_activity_icon" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -24,28 +25,31 @@
             android:id="@+id/tvActivityTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Activity Title"
+            android:text="@string/activity_title_default"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="#333333"
             android:layout_marginBottom="2dp" />
+        <!-- ↑↑↑ CAMBIAR texto fijo por @string/activity_title_default ↑↑↑ -->
 
         <TextView
             android:id="@+id/tvActivityDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Activity Description"
+            android:text="@string/activity_description_default"
             android:textSize="12sp"
             android:textColor="#666666"
             android:layout_marginBottom="4dp" />
+        <!-- ↑↑↑ CAMBIAR texto fijo por @string/activity_description_default ↑↑↑ -->
 
         <TextView
             android:id="@+id/tvActivityTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2 hours ago"
-            android:textSize="10sp"
+            android:text="@string/activity_time_default"
+            android:textSize="12sp"
             android:textColor="#999999" />
+        <!-- ↑↑↑ CAMBIAR texto fijo por @string/activity_time_default ↑↑↑ -->
 
     </LinearLayout>
 

@@ -5,6 +5,33 @@
     <!-- ✅ AGREGAR ESTA LÍNEA -->
     <string name="default_notification_channel_id">default_channel</string>
 
+    <!-- DESCARGAS PARA ACCESIBILIDAD - NUEVAS -->
+    <string name="desc_activity_icon">Icono de la actividad</string>
+    <string name="desc_arrow_icon">Flecha hacia la derecha</string>
+    <string name="desc_profile_image">Foto de perfil del usuario</string>
+    <string name="desc_settings_icon">Icono de configuración</string>
+    <string name="desc_notification_icon">Icono de notificaciones</string>
+    <string name="desc_menu_icon">Icono de menú</string>
+    <string name="desc_search_icon">Icono de búsqueda</string>
+    <string name="desc_back_icon">Icono de retroceso</string>
+    <string name="desc_close_icon">Icono de cerrar</string>
+    <string name="desc_delete_icon">Icono de eliminar</string>
+    <string name="desc_edit_icon">Icono de editar</string>
+
+    <string name="service_name_sample">Diseño Arquitectónico Residencial</string>
+    <string name="service_description_sample">Servicio completo de diseño y planos para viviendas residenciales. Incluye consultoría, planos arquitectónicos y seguimiento del proyecto.</string>
+    <string name="service_price_sample">$500.00</string>
+    <string name="btn_book_service_format">Reservar Diseño Residencial - %s</string>
+    <string name="processing">Procesando…</string>
+    <string name="booking_success">¡Servicio reservado exitosamente!</string>
+    <string name="booking_error">Error al reservar: %s</string>
+
+    <!-- TEXTO PARA item_activity.xml - NUEVOS -->
+    <string name="activity_title_default">Activity Title</string>
+    <string name="activity_description_default">Activity Description</string>
+    <string name="activity_time_default">2 hours ago</string>
+    <!-- ↑↑↑ ELIMINAR LA LÍNEA DUPLICADA DE desc_activity_icon QUE ESTÁ AQUÍ ↑↑↑ -->
+
     <!-- Descripciones e imágenes -->
     <string name="logo_tienda_desc">Logo de la Tienda X</string>
     <string name="banner_tienda_desc">Banner de promoción de Tienda X</string>

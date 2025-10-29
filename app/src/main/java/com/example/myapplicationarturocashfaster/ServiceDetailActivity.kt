@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +31,7 @@ class ServiceDetailActivity : AppCompatActivity() {
 
         initViews()
         setupListeners()
+        setupBackPressedHandler() // ← NUEVO MÉTODO
 
         // Mostrar datos de ejemplo
         showSampleServiceData()
@@ -44,14 +46,24 @@ class ServiceDetailActivity : AppCompatActivity() {
         btnBack = findViewById(R.id.btnBack)
     }
 
+    // NUEVO: Manejo moderno de back press
+    private fun setupBackPressedHandler() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+    }
+
     private fun showSampleServiceData() {
         // Datos de ejemplo para el servicio
         serviceImage.setImageResource(android.R.drawable.ic_menu_edit) // Icono genérico
-        serviceName.text = "Diseño Arquitectónico Residencial"
-        serviceDescription.text = "Servicio completo de diseño y planos para viviendas residenciales. Incluye consultoría, planos arquitectónicos y seguimiento del proyecto."
-        servicePrice.text = "$500.00"
+        serviceName.text = getString(R.string.service_name_sample)
+        serviceDescription.text = getString(R.string.service_description_sample)
+        servicePrice.text = getString(R.string.service_price_sample)
 
-        btnBookService.text = "Reservar Diseño Residencial - $500.00"
+        btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
     }
 
     private fun setupListeners() {
@@ -60,14 +72,14 @@ class ServiceDetailActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
-            onBackPressed()
+            finish() // ← CAMBIADO: usar finish() en lugar de onBackPressed()
         }
     }
 
     private fun bookService() {
         // Show loading state
         btnBookService.isEnabled = false
-        btnBookService.text = "Procesando..."
+        btnBookService.text = getString(R.string.processing)
 
         scope.launch {
             try {
@@ -76,11 +88,11 @@ class ServiceDetailActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = "Reservar Diseño Residencial - $500.00"
+                    btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
 
                     Toast.makeText(
                         this@ServiceDetailActivity,
-                        "¡Servicio reservado exitosamente!",
+                        getString(R.string.booking_success),
                         Toast.LENGTH_LONG
                     ).show()
 
@@ -91,10 +103,10 @@ class ServiceDetailActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = "Reservar Diseño Residencial - $500.00"
+                    btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
                     Toast.makeText(
                         this@ServiceDetailActivity,
-                        "Error al reservar: ${e.message}",
+                        getString(R.string.booking_error, e.message ?: "Error desconocido"),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
