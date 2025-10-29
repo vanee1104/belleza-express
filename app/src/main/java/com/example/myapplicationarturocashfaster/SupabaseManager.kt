@@ -10,11 +10,6 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONObject
 import java.security.MessageDigest
-import java.security.SecureRandom
-import java.security.cert.X509Certificate
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 
 object SupabaseManager {
 
@@ -22,31 +17,10 @@ object SupabaseManager {
     private const val SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhva2Vra3hmcGhpYXlseXB4YmJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NjE3ODUsImV4cCI6MjA3NzIzNzc4NX0.Tc0tAQ4B1KAkmXwKaHj4t3PxYBd_hwqz0NsoPu2sHWE"
 
     private val JSON_MEDIA_TYPE = "application/json".toMediaType()
-    private val client = createUnsafeOkHttpClient()
 
-    private fun createUnsafeOkHttpClient(): OkHttpClient {
-        try {
-            // Trust manager que ignora todos los certificados SSL
-            val trustAllCerts = arrayOf(object : X509TrustManager {
-                override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
-                override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}
-                override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
-            })
-
-            // Configurar SSL context
-            val sslContext = SSLContext.getInstance("SSL")
-            sslContext.init(null, trustAllCerts, SecureRandom())
-
-            // Crear cliente OkHttp que ignora SSL
-            return OkHttpClient.Builder()
-                .sslSocketFactory(sslContext.socketFactory, trustAllCerts[0])
-                .hostnameVerifier { _, _ -> true } // Aceptar cualquier hostname
-                .build()
-        } catch (e: Exception) {
-            Log.e("SupabaseManager", "Error creando cliente SSL: ${e.message}")
-            return OkHttpClient() // Fallback a cliente normal
-        }
-    }
+    // ✅ CLIENTE SEGURO - usa verificación SSL estándar
+    private val client = OkHttpClient.Builder()
+        .build()
 
     suspend fun registerUser(
         identification: String,
