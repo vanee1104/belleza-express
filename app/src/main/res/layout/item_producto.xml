@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <!-- Imagen del producto (foto o banner) -->
+    <ImageView
+        android:id="@+id/imgProductoFoto"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/producto1"
+        android:contentDescription="@string/producto_foto_desc" />
+
+    <!-- Icono vectorial del producto -->
+    <ImageView
+        android:id="@+id/imgProductoIcono"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_producto"
+        android:contentDescription="@string/icono_producto_desc" />
+
+    <!-- Nombre del producto -->
+    <TextView
+        android:id="@+id/txtNombreProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Caja de ejemplo"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+</LinearLayout>
