@@ -10,6 +10,11 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONObject
 import java.security.MessageDigest
+import java.security.SecureRandom
+import java.security.cert.X509Certificate
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManager
+import javax.net.ssl.X509TrustManager
 
 object SupabaseManager {
 
@@ -18,9 +23,31 @@ object SupabaseManager {
 
     private val JSON_MEDIA_TYPE = "application/json".toMediaType()
 
-    // ✅ CLIENTE SEGURO - usa verificación SSL estándar
-    private val client = OkHttpClient.Builder()
-        .build()
+    // ✅ CLIENTE QUE IGNORA SSL (SOLO PARA DESARROLLO)
+    private val client = createUnsafeOkHttpClient()
+
+    private fun createUnsafeOkHttpClient(): OkHttpClient {
+        try {
+            // Crear un trust manager que no valide certificados
+            val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+                override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+                override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
+            })
+
+            // Instalar el trust manager
+            val sslContext = SSLContext.getInstance("SSL")
+            sslContext.init(null, trustAllCerts, SecureRandom())
+
+            // Crear cliente OkHttp con SSL inseguro
+            return OkHttpClient.Builder()
+                .sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
+                .hostnameVerifier { _, _ -> true } // Aceptar todos los hostnames
+                .build()
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
+    }
 
     suspend fun registerUser(
         identification: String,
@@ -82,7 +109,7 @@ object SupabaseManager {
                 }
 
             } catch (e: Exception) {
-                Log.e("SupabaseManager", "❌ Error de conexión: ${e.message}")
+                Log.e("SupabaseManager", "❌ Error de conexión: ${e.message}", e)
                 Pair(false, "Error de conexión: ${e.message}")
             }
         }
@@ -121,7 +148,7 @@ object SupabaseManager {
                     Pair(false, "Error del servidor: ${response.code}")
                 }
             } catch (e: Exception) {
-                Log.e("SupabaseManager", "❌ Error en login: ${e.message}")
+                Log.e("SupabaseManager", "❌ Error en login: ${e.message}", e)
                 Pair(false, "Error de conexión: ${e.message}")
             }
         }

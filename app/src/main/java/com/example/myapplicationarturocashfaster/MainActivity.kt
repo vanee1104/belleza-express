@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnBookService: Button
     private lateinit var btnMyBookings: Button
     private lateinit var btnProfile: ImageButton
+    private lateinit var btnLogout: ImageButton // NUEVO
     private lateinit var recentActivityRecyclerView: RecyclerView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var activityAdapter: ActivityAdapter
@@ -58,6 +59,9 @@ class MainActivity : AppCompatActivity() {
         btnMyBookings = findViewById(R.id.btnMyBookings)
         btnProfile = findViewById(R.id.btnProfile)
         recentActivityRecyclerView = findViewById(R.id.recentActivityRecyclerView)
+
+        // NUEVO: Inicializar botón de logout
+        btnLogout = findViewById(R.id.btnLogout)
     }
 
     private fun setupSharedPreferences() {
@@ -81,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
             // Mostrar estadísticas (datos de ejemplo)
             tvBookingsCount.text = "2"
-            tvServicesCount.text = "5" // Número fijo en lugar de Service.getSampleServices().size
+            tvServicesCount.text = "5"
 
         } else {
             // Usuario no logueado - redirigir a login
@@ -119,8 +123,46 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // NUEVO: Listener para botón de logout
+        btnLogout.setOnClickListener {
+            showLogoutConfirmation()
+        }
+
         // Bottom Navigation
         setupBottomNavigation()
+    }
+
+    // NUEVO: Función para mostrar confirmación de logout
+    private fun showLogoutConfirmation() {
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Cerrar Sesión")
+            .setMessage("¿Estás seguro de que quieres cerrar sesión?")
+            .setPositiveButton("Sí") { _, _ ->
+                logoutUser()
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    // NUEVO: Función para cerrar sesión
+    private fun logoutUser() {
+        val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // SOLO eliminar los datos de sesión del usuario, no todo
+        editor.remove("is_logged_in")
+        editor.remove("username")
+        editor.remove("email")
+        editor.remove("login_time")
+        editor.apply()
+
+        Toast.makeText(this, "Sesión cerrada exitosamente", Toast.LENGTH_SHORT).show()
+
+        // Redirigir al login
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setupBottomNavigation() {

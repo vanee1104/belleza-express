@@ -112,4 +112,13 @@
 
     <!-- Menú principal -->
     <string name="action_settings">Configuración</string>
+
+    <!-- Agregar al final de strings.xml -->
+    <string name="logout">Cerrar Sesión</string>
+    <string name="logout_confirmation_title">Cerrar Sesión</string>
+    <string name="logout_confirmation_message">¿Estás seguro de que quieres cerrar sesión?</string>
+    <string name="logout_success">Sesión cerrada exitosamente</string>
+    <string name="yes">Sí</string>
+    <string name="cancel">Cancelar</string>
+    <string name="please_login">Por favor inicia sesión para acceder al dashboard</string>
 </resources>

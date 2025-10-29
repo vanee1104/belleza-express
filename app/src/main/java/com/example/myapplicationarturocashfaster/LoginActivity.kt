@@ -1,6 +1,7 @@
 package com.example.myapplicationarturocashfaster
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var tvRegister: TextView
     private lateinit var tvError: TextView
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.Main + job)
@@ -29,8 +31,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         initViews()
+        setupSharedPreferences()
+        checkSharedPreferences() // NUEVO: Verificar SharedPreferences
         setupListeners()
-        checkExistingSession()
+
+        Log.d("LOGIN_DEBUG", "✅ LoginActivity creada")
     }
 
     private fun initViews() {
@@ -39,6 +44,24 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         tvRegister = findViewById(R.id.tvRegister)
         tvError = findViewById(R.id.tvError)
+    }
+
+    private fun setupSharedPreferences() {
+        sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+    }
+
+    // NUEVO: Función para verificar SharedPreferences
+    private fun checkSharedPreferences() {
+        val allEntries = sharedPreferences.all
+
+        Log.d("SHARED_PREFS_DEBUG", "📊 [LOGIN] Contenido de SharedPreferences:")
+        for ((key, value) in allEntries) {
+            Log.d("SHARED_PREFS_DEBUG", "   $key = $value")
+        }
+
+        if (allEntries.isEmpty()) {
+            Log.d("SHARED_PREFS_DEBUG", "   ⚠️ SharedPreferences está VACÍO")
+        }
     }
 
     private fun setupListeners() {
@@ -56,35 +79,42 @@ class LoginActivity : AppCompatActivity() {
         val email = etEmail.text.toString().trim()
         val password = etPassword.text.toString().trim()
 
+        Log.d("LOGIN_DEBUG", "🔵 Iniciando login...")
+        Log.d("LOGIN_DEBUG", "   📝 Email: $email")
+        Log.d("LOGIN_DEBUG", "   📝 Password: ${if (password.isNotEmpty()) "***" + password.length + "***" else "VACÍA"}")
+
         if (email.isEmpty() || password.isEmpty()) {
             showError(getString(R.string.error_empty_fields))
+            Log.e("LOGIN_DEBUG", "❌ Campos vacíos")
             return
         }
 
         if (!isValidEmail(email)) {
             showError(getString(R.string.error_invalid_email))
+            Log.e("LOGIN_DEBUG", "❌ Email inválido: $email")
             return
         }
 
-        Log.d("LoginActivity", "🔵 Iniciando proceso de login...")
+        Log.d("LOGIN_DEBUG", "✅ Validaciones pasadas, iniciando login...")
 
         btnLogin.isEnabled = false
         btnLogin.text = getString(R.string.logging_in)
 
         scope.launch {
             try {
-                Log.d("LoginActivity", "🔵 Llamando a SupabaseManager.loginUser()")
+                Log.d("LOGIN_DEBUG", "🔵 Llamando a SupabaseManager.loginUser()")
 
                 val result = SupabaseManager.loginUser(email, password)
                 val success = result.first
                 val message = result.second
 
-                Log.d("LoginActivity", "🔵 Resultado: success=$success, message=$message")
+                Log.d("LOGIN_DEBUG", "🔵 Resultado login: success=$success, message=$message")
 
                 btnLogin.isEnabled = true
                 btnLogin.text = getString(R.string.login_button)
 
                 if (success) {
+                    Log.d("LOGIN_DEBUG", "✅ Login exitoso, guardando sesión...")
                     showSuccess(getString(R.string.login_success))
                     val username = email.substringBefore("@")
                     saveUserSession(username, email)
@@ -92,10 +122,11 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
+                    Log.e("LOGIN_DEBUG", "❌ Error en login: $message")
                     showError(getString(R.string.login_error, message))
                 }
             } catch (e: Exception) {
-                Log.e("LoginActivity", "🔴 Error en corrutina: ${e.message}", e)
+                Log.e("LOGIN_DEBUG", "🔴 Error en corrutina de login: ${e.message}", e)
                 btnLogin.isEnabled = true
                 btnLogin.text = getString(R.string.login_button)
                 showError(getString(R.string.generic_error, e.message ?: getString(R.string.unknown_error)))
@@ -104,24 +135,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveUserSession(username: String, email: String) {
-        val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putBoolean("is_logged_in", true)
         editor.putString("username", username)
         editor.putString("email", email)
         editor.putLong("login_time", System.currentTimeMillis())
-        editor.apply()
-        Log.d("LoginActivity", "✅ Sesión guardada para: $username")
-    }
+        val success = editor.commit() // Usamos commit() para saber si se guardó
 
-    private fun checkExistingSession() {
-        val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
-        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        Log.d("LOGIN_DEBUG", "💾 Guardando sesión - success=$success")
+        Log.d("LOGIN_DEBUG", "   👤 Username: $username")
+        Log.d("LOGIN_DEBUG", "   📧 Email: $email")
 
-        if (isLoggedIn) {
-            val username = sharedPreferences.getString("username", "")
-            val email = sharedPreferences.getString("email", "")
-            Log.d("LoginActivity", "🔵 Sesión existente encontrada para: $username")
+        if (success) {
+            Log.d("LOGIN_DEBUG", "✅ Sesión guardada exitosamente")
+        } else {
+            Log.e("LOGIN_DEBUG", "❌ Error al guardar sesión")
         }
     }
 

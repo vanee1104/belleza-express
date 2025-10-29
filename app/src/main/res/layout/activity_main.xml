@@ -67,6 +67,7 @@
                     android:alpha="0.8" />
             </LinearLayout>
 
+            <!-- Botón de Perfil -->
             <ImageButton
                 android:id="@+id/btnProfile"
                 android:layout_width="40dp"
@@ -75,6 +76,17 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="User Profile"
                 android:tint="@color/white" />
+
+            <!-- NUEVO: Botón de Cerrar Sesión -->
+            <ImageButton
+                android:id="@+id/btnLogout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/logout"
+                android:tint="@color/white"
+                android:layout_marginStart="8dp" />
 
         </LinearLayout>
 
