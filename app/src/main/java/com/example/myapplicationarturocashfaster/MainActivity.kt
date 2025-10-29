@@ -1,16 +1,21 @@
 package com.example.myapplicationarturocashfaster
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplicationarturocashfaster.adapters.SliderAdapter
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +25,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnRegister: Button
     private lateinit var sliderAdapter: SliderAdapter
     private lateinit var dots: Array<ImageView?>
+
+    // Variables para navegación y usuario
+    private lateinit var btnNavServices: Button
+    private lateinit var btnNavBookings: Button
+    private lateinit var btnNavProfile: Button
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var layoutNotLoggedIn: LinearLayout
+    private lateinit var layoutLoggedIn: LinearLayout
+    private lateinit var tvWelcomeUser: TextView
+    private lateinit var btnLogoutMain: Button
 
     private val sliderImages = intArrayOf(
         R.drawable.slider1,           // Tu imagen 1 del slider
@@ -56,6 +71,8 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupSlider()
         setupClickListeners()
+        setupNavigation() // Nueva función de navegación
+        updateUserInterface() // Actualizar interfaz según estado de usuario
 
         // Iniciar el slider automático
         startAutoSlider()
@@ -97,14 +114,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    // ✅ NUEVA FUNCIÓN: Iniciar slider automático
+    // FUNCIÓN: Iniciar slider automático
     private fun startAutoSlider() {
         isSliderActive = true
         handler.removeCallbacks(sliderRunnable) // Limpiar cualquier callback previo
         handler.postDelayed(sliderRunnable, sliderDelay)
     }
 
-    // ✅ NUEVA FUNCIÓN: Pausar slider automático
+    // FUNCIÓN: Pausar slider automático
     private fun pauseAutoSlider() {
         isSliderActive = false
         handler.removeCallbacks(sliderRunnable)
@@ -154,21 +171,124 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // NUEVA FUNCIÓN: Configurar navegación
+    private fun setupNavigation() {
+        btnNavServices = findViewById(R.id.btnNavServices)
+        btnNavBookings = findViewById(R.id.btnNavBookings)
+        btnNavProfile = findViewById(R.id.btnNavProfile)
+        sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+
+        // Inicializar vistas de usuario
+        layoutNotLoggedIn = findViewById(R.id.layoutNotLoggedIn)
+        layoutLoggedIn = findViewById(R.id.layoutLoggedIn)
+        tvWelcomeUser = findViewById(R.id.tvWelcomeUser)
+        btnLogoutMain = findViewById(R.id.btnLogoutMain)
+
+        btnNavServices.setOnClickListener {
+            navigateToServiceDetail()
+        }
+
+        btnNavBookings.setOnClickListener {
+            navigateToBookings()
+        }
+
+        btnNavProfile.setOnClickListener {
+            navigateToProfile()
+        }
+    }
+
+    // NUEVAS FUNCIONES DE NAVEGACIÓN
+    private fun navigateToServiceDetail() {
+        val intent = Intent(this, ServiceDetailActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToBookings() {
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        if (isLoggedIn) {
+            val intent = Intent(this, BookingsActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Si no está logueado, ir al login primero
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun navigateToProfile() {
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        if (isLoggedIn) {
+            val intent = Intent(this, UserProfileActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Si no está logueado, ir al login primero
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    // NUEVA FUNCIÓN PARA ACTUALIZAR INTERFAZ DE USUARIO
+    private fun updateUserInterface() {
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+        val username = sharedPreferences.getString("username", "")
+
+        if (isLoggedIn && !username.isNullOrEmpty()) {
+            // Usuario logueado - mostrar bienvenida
+            val formattedUsername = username.replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
+            }
+
+            layoutNotLoggedIn.visibility = View.GONE
+            layoutLoggedIn.visibility = View.VISIBLE
+            tvWelcomeUser.text = "¡Hola, $formattedUsername!"
+
+            // Configurar logout
+            btnLogoutMain.setOnClickListener {
+                showLogoutConfirmation()
+            }
+        } else {
+            // Usuario no logueado - mostrar login/registro
+            layoutNotLoggedIn.visibility = View.VISIBLE
+            layoutLoggedIn.visibility = View.GONE
+        }
+    }
+
+    // FUNCIÓN PARA CERRAR SESIÓN
+    private fun showLogoutConfirmation() {
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Cerrar Sesión")
+            .setMessage("¿Estás seguro de que quieres cerrar sesión?")
+            .setPositiveButton("Sí") { _, _ ->
+                logoutUser()
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    private fun logoutUser() {
+        val editor = sharedPreferences.edit()
+        editor.remove("is_logged_in")
+        editor.remove("username")
+        editor.remove("email")
+        editor.apply()
+
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
+        updateUserInterface() // Actualizar la interfaz
+    }
+
     override fun onResume() {
         super.onResume()
-        // Reanudar slider cuando la app vuelve al frente
         startAutoSlider()
+        updateUserInterface() // Actualizar interfaz al volver
     }
 
     override fun onPause() {
         super.onPause()
-        // Pausar slider cuando la app va a segundo plano
         pauseAutoSlider()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        // Limpiar recursos
         pauseAutoSlider()
     }
 }
