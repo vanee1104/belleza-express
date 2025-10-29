@@ -3,49 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- ==================================================== -->
-    <!-- PERMISOS DE RED Y CONECTIVIDAD -->
+    <!-- PERMISOS ESENCIALES -->
     <!-- ==================================================== -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <!-- ==================================================== -->
-    <!-- PERMISOS DE ALMACENAMIENTO Y MEDIA -->
+    <!-- PERMISOS OPCIONALES (mantener solo si los usas) -->
     <!-- ==================================================== -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
-
-    <!-- ==================================================== -->
-    <!-- PERMISOS DE CÁMARA Y MULTIMEDIA -->
-    <!-- ==================================================== -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <!-- ==================================================== -->
-    <!-- PERMISOS DE UBICACIÓN -->
-    <!-- ==================================================== -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- ==================================================== -->
-    <!-- PERMISOS DE NOTIFICACIONES Y SISTEMA -->
-    <!-- ==================================================== -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-
-    <!-- ==================================================== -->
-    <!-- PERMISOS ADICIONALES (OPCIONALES) -->
-    <!-- ==================================================== -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"
-        tools:ignore="ProtectedPermissions" />
 
     <!-- ==================================================== -->
     <!-- CARACTERÍSTICAS DEL DISPOSITIVO -->
@@ -55,9 +25,6 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.location.gps"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
         android:required="false" />
 
     <!-- ==================================================== -->
@@ -181,61 +148,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplicationArturoCashFaster" />
 
-        <!-- USER MANAGEMENT ACTIVITY -->
-        <activity
-            android:name=".UserManagementActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplicationArturoCashFaster" />
-
-        <!-- ==================================================== -->
-        <!-- SERVICIOS Y RECEIVERS -->
-        <!-- ==================================================== -->
-
-        <!-- SERVICIO DE NOTIFICACIONES -->
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-        <!-- SERVICIO EN PRIMER PLANO -->
-        <service
-            android:name=".ForegroundService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="dataSync" />
-
-        <!-- RECEIVER PARA CAMBIOS DE RED -->
-        <receiver
-            android:name=".NetworkChangeReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <!-- RECEIVER PARA BOOT COMPLETADO -->
-        <receiver
-            android:name=".BootCompleteReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
         <!-- ==================================================== -->
         <!-- METADATOS Y CONFIGURACIONES -->
         <!-- ==================================================== -->
-
-        <!-- CONFIGURACIÓN PARA NOTIFICACIONES (Android 8.0+) -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" />
 
         <!-- CONFIGURACIÓN PARA GLIDE -->
         <meta-data
@@ -246,14 +161,6 @@
         <meta-data
             android:name="android.security.net.config"
             android:resource="@xml/network_security_config" />
-
-        <!-- CONFIGURACIÓN DE BACKUP -->
-        <meta-data
-            android:name="android.app.usage.LOCUS_ID_USAGE_STATS"
-            android:value="ArquiTechSolutions" />
-
-        <!-- ACTIVIDAD DE SPLASH (Android 12+) -->
-        <!-- Eliminada la referencia a splash_screen que no existe -->
 
     </application>
 
