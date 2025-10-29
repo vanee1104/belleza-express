@@ -32,7 +32,6 @@
     <string name="team_designer">Diseñador</string>
     <string name="team_assistant">Asistente</string>
 
-
     <!-- DESCARGAS PARA ACCESIBILIDAD - NUEVAS -->
     <string name="desc_activity_icon">Icono de la actividad</string>
     <string name="desc_arrow_icon">Flecha hacia la derecha</string>
@@ -93,7 +92,6 @@
     <string name="activity_title_default">Activity Title</string>
     <string name="activity_description_default">Activity Description</string>
     <string name="activity_time_default">2 hours ago</string>
-    <!-- ↑↑↑ ELIMINAR LA LÍNEA DUPLICADA DE desc_activity_icon QUE ESTÁ AQUÍ ↑↑↑ -->
 
     <!-- Descripciones e imágenes -->
     <string name="logo_tienda_desc">Logo de la Tienda X</string>
@@ -113,7 +111,7 @@
     <!-- Menú principal -->
     <string name="action_settings">Configuración</string>
 
-    <!-- Agregar al final de strings.xml -->
+    <!-- Logout -->
     <string name="logout">Cerrar Sesión</string>
     <string name="logout_confirmation_title">Cerrar Sesión</string>
     <string name="logout_confirmation_message">¿Estás seguro de que quieres cerrar sesión?</string>
@@ -121,4 +119,27 @@
     <string name="yes">Sí</string>
     <string name="cancel">Cancelar</string>
     <string name="please_login">Por favor inicia sesión para acceder al dashboard</string>
+
+    <!-- ========== NUEVOS STRINGS PARA DASHBOARD ========== -->
+    <!-- Dashboard Texts -->
+    <string name="welcome_back">¡Bienvenido de nuevo, %s! 👋</string>
+    <string name="quick_actions">Acciones Rápidas</string>
+    <string name="recent_activity">Actividad Reciente</string>
+    <string name="book_service">Reservar Servicio</string>
+    <string name="my_bookings">Mis Reservas</string>
+    <string name="bookings">Reservas</string>
+    <string name="services">Servicios</string>
+
+    <!-- Activity Items -->
+    <string name="activity_service_booked">Consulta de Servicio Reservada</string>
+    <string name="activity_profile_updated">Perfil Actualizado</string>
+    <string name="activity_welcome">¡Bienvenido a ArquiTech!</string>
+    <string name="activity_service_booked_desc">Servicio de Diseño Arquitectónico</string>
+    <string name="activity_profile_updated_desc">Tu información de perfil fue actualizada</string>
+    <string name="activity_welcome_desc">Tu cuenta fue creada exitosamente</string>
+
+    <!-- Time formats -->
+    <string name="time_hours_ago">hace %d horas</string>
+    <string name="time_days_ago">hace %d días</string>
+    <string name="time_just_now">ahora mismo</string>
 </resources>

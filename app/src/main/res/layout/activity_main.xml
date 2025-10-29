@@ -29,7 +29,7 @@
                 android:layout_height="50dp"
                 android:src="@android:drawable/ic_menu_my_calendar"
                 android:layout_marginEnd="16dp"
-                android:contentDescription="User Profile"
+                android:contentDescription="@string/desc_profile_image"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
@@ -42,7 +42,7 @@
                     android:id="@+id/tvDashboardWelcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Welcome Back!"
+                    android:text="@string/welcome_back"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -74,10 +74,10 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_menu_myplaces"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="User Profile"
+                android:contentDescription="@string/desc_profile_image"
                 android:tint="@color/white" />
 
-            <!-- NUEVO: Botón de Cerrar Sesión -->
+            <!-- Botón de Cerrar Sesión -->
             <ImageButton
                 android:id="@+id/btnLogout"
                 android:layout_width="40dp"
@@ -122,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bookings"
+                    android:text="@string/bookings"
                     android:textSize="14sp"
                     android:textColor="#666666" />
 
@@ -153,7 +153,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Services"
+                    android:text="@string/services"
                     android:textSize="14sp"
                     android:textColor="#666666" />
 
@@ -165,7 +165,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quick Actions"
+            android:text="@string/quick_actions"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#2E7D32"
@@ -182,7 +182,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Book Service"
+                android:text="@string/book_service"
                 android:layout_marginEnd="8dp"
                 android:background="@color/purple_500"
                 android:textColor="@color/white"
@@ -195,7 +195,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="My Bookings"
+                android:text="@string/my_bookings"
                 android:layout_marginStart="8dp"
                 android:background="@color/teal_700"
                 android:textColor="@color/white"
@@ -209,7 +209,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recent Activity"
+            android:text="@string/recent_activity"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#2E7D32"

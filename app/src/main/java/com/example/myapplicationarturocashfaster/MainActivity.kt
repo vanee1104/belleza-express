@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnBookService: Button
     private lateinit var btnMyBookings: Button
     private lateinit var btnProfile: ImageButton
-    private lateinit var btnLogout: ImageButton // NUEVO
+    private lateinit var btnLogout: ImageButton
     private lateinit var recentActivityRecyclerView: RecyclerView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var activityAdapter: ActivityAdapter
@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity() {
         btnMyBookings = findViewById(R.id.btnMyBookings)
         btnProfile = findViewById(R.id.btnProfile)
         recentActivityRecyclerView = findViewById(R.id.recentActivityRecyclerView)
-
-        // NUEVO: Inicializar botón de logout
         btnLogout = findViewById(R.id.btnLogout)
     }
 
@@ -81,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
             tvDashboardUserName.text = formattedUsername
             tvDashboardUserEmail.text = email
-            tvDashboardWelcome.text = "Welcome Back, $formattedUsername! 👋"
+            tvDashboardWelcome.text = getString(R.string.welcome_back, formattedUsername) // ← INTERNACIONALIZADO
 
             // Mostrar estadísticas (datos de ejemplo)
             tvBookingsCount.text = "2"
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         } else {
             // Usuario no logueado - redirigir a login
-            Toast.makeText(this, "Please login to access dashboard", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_login), Toast.LENGTH_SHORT).show() // ← INTERNACIONALIZADO
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
@@ -123,7 +121,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // NUEVO: Listener para botón de logout
         btnLogout.setOnClickListener {
             showLogoutConfirmation()
         }
@@ -132,19 +129,17 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
     }
 
-    // NUEVO: Función para mostrar confirmación de logout
     private fun showLogoutConfirmation() {
         android.app.AlertDialog.Builder(this)
-            .setTitle("Cerrar Sesión")
-            .setMessage("¿Estás seguro de que quieres cerrar sesión?")
-            .setPositiveButton("Sí") { _, _ ->
+            .setTitle(getString(R.string.logout_confirmation_title)) // ← INTERNACIONALIZADO
+            .setMessage(getString(R.string.logout_confirmation_message)) // ← INTERNACIONALIZADO
+            .setPositiveButton(getString(R.string.yes)) { _, _ -> // ← INTERNACIONALIZADO
                 logoutUser()
             }
-            .setNegativeButton("Cancelar", null)
+            .setNegativeButton(getString(R.string.cancel), null) // ← INTERNACIONALIZADO
             .show()
     }
 
-    // NUEVO: Función para cerrar sesión
     private fun logoutUser() {
         val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -156,7 +151,7 @@ class MainActivity : AppCompatActivity() {
         editor.remove("login_time")
         editor.apply()
 
-        Toast.makeText(this, "Sesión cerrada exitosamente", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.logout_success), Toast.LENGTH_SHORT).show() // ← INTERNACIONALIZADO
 
         // Redirigir al login
         val intent = Intent(this, LoginActivity::class.java)
@@ -204,22 +199,22 @@ class MainActivity : AppCompatActivity() {
         return listOf(
             ActivityItem(
                 icon = android.R.drawable.ic_menu_edit,
-                title = "Service Consultation Booked",
-                description = "Architectural Design service",
+                title = getString(R.string.activity_service_booked), // ← INTERNACIONALIZADO
+                description = getString(R.string.activity_service_booked_desc), // ← INTERNACIONALIZADO
                 time = "2 hours ago",
                 type = ActivityType.BOOKING
             ),
             ActivityItem(
                 icon = android.R.drawable.ic_menu_save,
-                title = "Profile Updated",
-                description = "Your profile information was updated",
+                title = getString(R.string.activity_profile_updated), // ← INTERNACIONALIZADO
+                description = getString(R.string.activity_profile_updated_desc), // ← INTERNACIONALIZADO
                 time = "1 day ago",
                 type = ActivityType.PROFILE
             ),
             ActivityItem(
                 icon = android.R.drawable.ic_dialog_info,
-                title = "Welcome to ArquiTech!",
-                description = "Your account was successfully created",
+                title = getString(R.string.activity_welcome), // ← INTERNACIONALIZADO
+                description = getString(R.string.activity_welcome_desc), // ← INTERNACIONALIZADO
                 time = "2 days ago",
                 type = ActivityType.SYSTEM
             )
