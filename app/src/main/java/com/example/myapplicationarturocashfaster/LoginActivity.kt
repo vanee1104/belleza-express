@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var tvRegister: TextView
     private lateinit var tvError: TextView
 
-    // CORRECCIÓN: Separar Job del scope
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.Main + job)
 
@@ -31,8 +30,6 @@ class LoginActivity : AppCompatActivity() {
 
         initViews()
         setupListeners()
-
-        // Verificar si ya hay una sesión activa
         checkExistingSession()
     }
 
@@ -60,19 +57,19 @@ class LoginActivity : AppCompatActivity() {
         val password = etPassword.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty()) {
-            showError("Por favor, completa todos los campos")
+            showError(getString(R.string.error_empty_fields))
             return
         }
 
         if (!isValidEmail(email)) {
-            showError("Por favor, ingresa un email válido")
+            showError(getString(R.string.error_invalid_email))
             return
         }
 
         Log.d("LoginActivity", "🔵 Iniciando proceso de login...")
 
         btnLogin.isEnabled = false
-        btnLogin.text = "Iniciando sesión..."
+        btnLogin.text = getString(R.string.logging_in)
 
         scope.launch {
             try {
@@ -85,24 +82,23 @@ class LoginActivity : AppCompatActivity() {
                 Log.d("LoginActivity", "🔵 Resultado: success=$success, message=$message")
 
                 btnLogin.isEnabled = true
-                btnLogin.text = "Iniciar Sesión"
+                btnLogin.text = getString(R.string.login_button)
 
                 if (success) {
-                    showSuccess("✅ $message")
-                    // Extraer username del email (o modificar según tu lógica)
+                    showSuccess(getString(R.string.login_success))
                     val username = email.substringBefore("@")
                     saveUserSession(username, email)
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    showError("❌ $message")
+                    showError(getString(R.string.login_error, message))
                 }
             } catch (e: Exception) {
                 Log.e("LoginActivity", "🔴 Error en corrutina: ${e.message}", e)
                 btnLogin.isEnabled = true
-                btnLogin.text = "Iniciar Sesión"
-                showError("❌ Error: ${e.message}")
+                btnLogin.text = getString(R.string.login_button)
+                showError(getString(R.string.generic_error, e.message ?: getString(R.string.unknown_error)))
             }
         }
     }
@@ -126,11 +122,6 @@ class LoginActivity : AppCompatActivity() {
             val username = sharedPreferences.getString("username", "")
             val email = sharedPreferences.getString("email", "")
             Log.d("LoginActivity", "🔵 Sesión existente encontrada para: $username")
-
-            // Opcional: Redirigir automáticamente si ya está logueado
-            // val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            // startActivity(intent)
-            // finish()
         }
     }
 
@@ -151,7 +142,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // CORRECCIÓN: Cancelar el job, no el scope
         job.cancel()
     }
 }

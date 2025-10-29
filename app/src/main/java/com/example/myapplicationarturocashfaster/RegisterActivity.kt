@@ -24,7 +24,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var tvLogin: TextView
     private lateinit var tvError: TextView
 
-    // CORRECCIÓN: Separar Job del scope
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.Main + job)
 
@@ -66,29 +65,29 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPassword = etConfirmPassword.text.toString().trim()
 
         if (identification.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            showError("Por favor, completa todos los campos")
+            showError(getString(R.string.error_empty_fields))
             return
         }
 
         if (password != confirmPassword) {
-            showError("Las contraseñas no coinciden")
+            showError(getString(R.string.error_passwords_not_match))
             return
         }
 
         if (password.length < 6) {
-            showError("La contraseña debe tener al menos 6 caracteres")
+            showError(getString(R.string.error_password_length))
             return
         }
 
         if (!isValidEmail(email)) {
-            showError("Por favor, ingresa un email válido")
+            showError(getString(R.string.error_invalid_email))
             return
         }
 
         Log.d("RegisterActivity", "🔵 Iniciando proceso de registro...")
 
         btnRegister.isEnabled = false
-        btnRegister.text = "Registrando..."
+        btnRegister.text = getString(R.string.registering)
 
         scope.launch {
             try {
@@ -106,21 +105,21 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d("RegisterActivity", "🔵 Resultado: success=$success, message=$message")
 
                 btnRegister.isEnabled = true
-                btnRegister.text = "Registrarse"
+                btnRegister.text = getString(R.string.register_button)
 
                 if (success) {
-                    showSuccess("✅ $message")
+                    showSuccess(getString(R.string.register_success))
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    showError("❌ $message")
+                    showError(getString(R.string.register_error, message))
                 }
             } catch (e: Exception) {
                 Log.e("RegisterActivity", "🔴 Error en corrutina: ${e.message}", e)
                 btnRegister.isEnabled = true
-                btnRegister.text = "Registrarse"
-                showError("❌ Error: ${e.message}")
+                btnRegister.text = getString(R.string.register_button)
+                showError(getString(R.string.generic_error, e.message ?: getString(R.string.unknown_error)))
             }
         }
     }
@@ -142,7 +141,6 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // CORRECCIÓN: Cancelar el job, no el scope
         job.cancel()
     }
 }

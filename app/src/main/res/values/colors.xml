@@ -28,4 +28,7 @@
     <color name="profile_color">@color/teal_700</color>
     <color name="system_color">@color/black</color>
     <color name="payment_color">@color/green_700</color>
+
+    <!-- ⭐⭐ AGREGAR ESTE COLOR FALTANTE ⭐⭐ -->
+    <color name="light_gray">#FFEEEEEE</color>
 </resources>
