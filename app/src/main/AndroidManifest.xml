@@ -2,24 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- ==================================================== -->
-    <!-- PERMISOS ESENCIALES -->
-    <!-- ==================================================== -->
+    <!-- PERMISOS (MANTENER IGUAL) -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- ==================================================== -->
-    <!-- PERMISOS OPCIONALES (mantener solo si los usas) -->
-    <!-- ==================================================== -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-    <!-- ==================================================== -->
-    <!-- CARACTERÍSTICAS DEL DISPOSITIVO -->
-    <!-- ==================================================== -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -27,9 +18,6 @@
         android:name="android.hardware.location.gps"
         android:required="false" />
 
-    <!-- ==================================================== -->
-    <!-- CONFIGURACIÓN DE LA APLICACIÓN -->
-    <!-- ==================================================== -->
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -46,11 +34,7 @@
         tools:targetApi="31"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
-        <!-- ==================================================== -->
-        <!-- ACTIVIDADES PRINCIPALES -->
-        <!-- ==================================================== -->
-
-        <!-- MAIN ACTIVITY (Pantalla inicial) -->
+        <!-- NUEVA MAIN ACTIVITY (Pantalla de Inicio) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -65,7 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Deep Linking -->
+            <!-- Deep Linking (mantener igual) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -75,7 +59,6 @@
                 <data android:pathPrefix="/app" />
             </intent-filter>
 
-            <!-- Custom Scheme -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -84,6 +67,14 @@
                 <data android:host="main" />
             </intent-filter>
         </activity>
+
+        <!-- DASHBOARD ACTIVITY (antes MainActivity) -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyApplicationArturoCashFaster"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- LOGIN ACTIVITY -->
         <activity
@@ -101,17 +92,13 @@
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
             android:windowSoftInputMode="adjustResize|stateVisible" />
 
-        <!-- USER DASHBOARD ACTIVITY -->
+        <!-- USER DASHBOARD ACTIVITY (¿duplicado? verificar si es necesario) -->
         <activity
             android:name=".UserDashboardActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
             android:windowSoftInputMode="adjustResize" />
-
-        <!-- ==================================================== -->
-        <!-- ACTIVIDADES DE SERVICIOS -->
-        <!-- ==================================================== -->
 
         <!-- SERVICE DETAIL ACTIVITY -->
         <activity
@@ -129,10 +116,6 @@
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- ==================================================== -->
-        <!-- ACTIVIDADES DE PERFIL Y CONFIGURACIÓN -->
-        <!-- ==================================================== -->
-
         <!-- USER PROFILE ACTIVITY -->
         <activity
             android:name=".UserProfileActivity"
@@ -148,16 +131,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplicationArturoCashFaster" />
 
-        <!-- ==================================================== -->
-        <!-- METADATOS Y CONFIGURACIONES -->
-        <!-- ==================================================== -->
-
         <!-- CONFIGURACIÓN PARA GLIDE -->
         <meta-data
             android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
             android:value="GlideModule" />
 
-        <!-- CONFIGURACIÓN DE SEGURIDAD -->
         <meta-data
             android:name="android.security.net.config"
             android:resource="@xml/network_security_config" />

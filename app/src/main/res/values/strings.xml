@@ -2,8 +2,10 @@
     <!-- Nombre de la app -->
     <string name="app_name">ArquiTech</string>
 
-    <!-- ✅ AGREGAR ESTA LÍNEA -->
     <string name="default_notification_channel_id">default_channel</string>
+
+    <string name="login">Login</string>
+    <string name="registrarse">Registrarse</string>
 
     <string name="company_name">ArquiTech</string>
     <string name="company_slogan">Soluciones Arquitectónicas Integrales</string>
@@ -21,6 +23,11 @@
     <string name="service_supervision">Supervisión de Obra</string>
     <string name="service_consultancy">Consultoría</string>
 
+    <!-- Descripciones para imágenes de servicios -->
+    <string name="desc_servicio_diseno">Servicio de Diseño Arquitectónico</string>
+    <string name="desc_servicio_planos">Servicio de Planos Técnicos</string>
+    <string name="desc_servicio_supervision">Servicio de Supervisión de Obra</string>
+
     <string name="service_design_desc">Planos y diseño personalizado para tu proyecto</string>
     <string name="service_plans_desc">Planos técnicos detallados y estructurales</string>
     <string name="service_supervision_desc">Control y calidad en construcción</string>
@@ -31,6 +38,11 @@
     <string name="team_engineer">Ingeniero Estructural</string>
     <string name="team_designer">Diseñador</string>
     <string name="team_assistant">Asistente</string>
+
+    <!-- Descripciones para imágenes del equipo -->
+    <string name="desc_arquitecto_juan">Foto del Arquitecto Juan</string>
+    <string name="desc_ingeniero_maria">Foto de la Ingeniera María</string>
+    <string name="desc_ayudante_carlos">Foto del Ayudante Carlos</string>
 
     <!-- DESCARGAS PARA ACCESIBILIDAD - NUEVAS -->
     <string name="desc_activity_icon">Icono de la actividad</string>
@@ -129,6 +141,25 @@
     <string name="my_bookings">Mis Reservas</string>
     <string name="bookings">Reservas</string>
     <string name="services">Servicios</string>
+
+    <!-- Nuevos strings para landing page -->
+    <string name="logo_arquitech">Logo Arquitech</string>
+    <string name="arquitech">ARQUITECH</string>
+    <string name="soluciones_arquitectonicas">Soluciones Arquitectónicas</string>
+    <string name="nuestros_servicios">🔧 NUESTROS SERVICIOS</string>
+    <string name="diseno">Diseño</string>
+    <string name="planos">Planos</string>
+    <string name="supervision">Supervisión</string>
+    <string name="precio_500">$500</string>
+    <string name="precio_300">$300</string>
+    <string name="precio_700">$700</string>
+    <string name="nuestro_equipo">👥 NUESTRO EQUIPO</string>
+    <string name="arq">Arq.</string>
+    <string name="ing">Ing.</string>
+    <string name="ayud">Ayud.</string>
+    <string name="juan">Juan</string>
+    <string name="maria">María</string>
+    <string name="carlos">Carlos</string>
 
     <!-- Activity Items -->
     <string name="activity_service_booked">Consulta de Servicio Reservada</string>

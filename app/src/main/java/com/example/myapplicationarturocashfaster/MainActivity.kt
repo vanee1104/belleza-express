@@ -1,248 +1,174 @@
 package com.example.myapplicationarturocashfaster
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import java.util.*
+import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplicationarturocashfaster.adapters.SliderAdapter
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvDashboardWelcome: TextView
-    private lateinit var tvDashboardUserName: TextView
-    private lateinit var tvDashboardUserEmail: TextView
-    private lateinit var tvBookingsCount: TextView
-    private lateinit var tvServicesCount: TextView
-    private lateinit var btnBookService: Button
-    private lateinit var btnMyBookings: Button
-    private lateinit var btnProfile: ImageButton
-    private lateinit var btnLogout: ImageButton
-    private lateinit var recentActivityRecyclerView: RecyclerView
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var activityAdapter: ActivityAdapter
+    private lateinit var viewPagerSlider: ViewPager2
+    private lateinit var layoutDots: LinearLayout
+    private lateinit var btnLogin: Button
+    private lateinit var btnRegister: Button
+    private lateinit var sliderAdapter: SliderAdapter
+    private lateinit var dots: Array<ImageView?>
+
+    private val sliderImages = intArrayOf(
+        R.drawable.slider1,           // Tu imagen 1 del slider
+        R.drawable.slider1_interior,  // Tu imagen 2 del slider
+        R.drawable.slider2,           // Tu imagen 3 del slider
+        R.drawable.slider2_interior,  // Tu imagen 4 del slider
+        R.drawable.slider3,           // Tu imagen 5 del slider
+        R.drawable.slider3_interior,  // Tu imagen 6 del slider
+        R.drawable.slider4,           // Tu imagen 7 del slider
+        R.drawable.slider4_interior,  // Tu imagen 8 del slider
+    )
+
+    private var currentPage = 0
+    private val sliderDelay: Long = 2000 // 2 segundos
+    private val handler = Handler(Looper.getMainLooper())
+
+    // Variable para controlar si el slider está activo
+    private var isSliderActive = true
+
+    private val sliderRunnable = object : Runnable {
+        override fun run() {
+            if (isSliderActive) {
+                currentPage = (currentPage + 1) % sliderImages.size
+                viewPagerSlider.setCurrentItem(currentPage, true)
+                handler.postDelayed(this, sliderDelay)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_landing)
 
-        try {
-            initViews()
-            setupSharedPreferences()
-            setupUserInfo()
-            setupListeners()
-            setupRecentActivity()
-            loadUserProfileImage()
+        initViews()
+        setupSlider()
+        setupClickListeners()
 
-            Log.d("DEBUG", "✅ Dashboard cargado exitosamente")
-
-        } catch (e: Exception) {
-            Log.e("DEBUG", "❌ ERROR: ${e.message}", e)
-            Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
-        }
+        // Iniciar el slider automático
+        startAutoSlider()
     }
 
     private fun initViews() {
-        tvDashboardWelcome = findViewById(R.id.tvDashboardWelcome)
-        tvDashboardUserName = findViewById(R.id.tvDashboardUserName)
-        tvDashboardUserEmail = findViewById(R.id.tvDashboardUserEmail)
-        tvBookingsCount = findViewById(R.id.tvBookingsCount)
-        tvServicesCount = findViewById(R.id.tvServicesCount)
-        btnBookService = findViewById(R.id.btnBookService)
-        btnMyBookings = findViewById(R.id.btnMyBookings)
-        btnProfile = findViewById(R.id.btnProfile)
-        recentActivityRecyclerView = findViewById(R.id.recentActivityRecyclerView)
-        btnLogout = findViewById(R.id.btnLogout)
+        viewPagerSlider = findViewById(R.id.viewPagerSlider)
+        layoutDots = findViewById(R.id.layoutDots)
+        btnLogin = findViewById(R.id.btnLogin)
+        btnRegister = findViewById(R.id.btnRegister)
     }
 
-    private fun setupSharedPreferences() {
-        sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
-    }
+    private fun setupSlider() {
+        sliderAdapter = SliderAdapter(sliderImages.toList())
+        viewPagerSlider.adapter = sliderAdapter
+        setupDots()
 
-    private fun setupUserInfo() {
-        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
-        val username = sharedPreferences.getString("username", "")
-        val email = sharedPreferences.getString("email", "")
-
-        if (isLoggedIn && !username.isNullOrEmpty()) {
-            // Usuario logueado - mostrar información personalizada
-            val formattedUsername = username.replaceFirstChar {
-                if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
+        viewPagerSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                currentPage = position
+                setCurrentDot(position)
             }
 
-            tvDashboardUserName.text = formattedUsername
-            tvDashboardUserEmail.text = email
-            tvDashboardWelcome.text = getString(R.string.welcome_back, formattedUsername) // ← INTERNACIONALIZADO
-
-            // Mostrar estadísticas (datos de ejemplo)
-            tvBookingsCount.text = "2"
-            tvServicesCount.text = "5"
-
-        } else {
-            // Usuario no logueado - redirigir a login
-            Toast.makeText(this, getString(R.string.please_login), Toast.LENGTH_SHORT).show() // ← INTERNACIONALIZADO
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
-    }
-
-    private fun loadUserProfileImage() {
-        // Imagen de perfil genérica
-        val profileImageUrl = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-
-        Glide.with(this)
-            .load(profileImageUrl)
-            .placeholder(android.R.drawable.ic_menu_myplaces)
-            .error(android.R.drawable.ic_menu_myplaces)
-            .circleCrop()
-            .into(btnProfile)
-    }
-
-    private fun setupListeners() {
-        btnBookService.setOnClickListener {
-            val intent = Intent(this, ServiceDetailActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnMyBookings.setOnClickListener {
-            val intent = Intent(this, BookingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnProfile.setOnClickListener {
-            val intent = Intent(this, UserProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnLogout.setOnClickListener {
-            showLogoutConfirmation()
-        }
-
-        // Bottom Navigation
-        setupBottomNavigation()
-    }
-
-    private fun showLogoutConfirmation() {
-        android.app.AlertDialog.Builder(this)
-            .setTitle(getString(R.string.logout_confirmation_title)) // ← INTERNACIONALIZADO
-            .setMessage(getString(R.string.logout_confirmation_message)) // ← INTERNACIONALIZADO
-            .setPositiveButton(getString(R.string.yes)) { _, _ -> // ← INTERNACIONALIZADO
-                logoutUser()
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+                when (state) {
+                    ViewPager2.SCROLL_STATE_DRAGGING -> {
+                        pauseAutoSlider() // Pausar cuando el usuario interactúa
+                    }
+                    ViewPager2.SCROLL_STATE_IDLE -> {
+                        // Reanudar después de 2 segundos de inactividad
+                        handler.postDelayed({
+                            startAutoSlider()
+                        }, sliderDelay)
+                    }
+                }
             }
-            .setNegativeButton(getString(R.string.cancel), null) // ← INTERNACIONALIZADO
-            .show()
+        })
     }
 
-    private fun logoutUser() {
-        val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-
-        // SOLO eliminar los datos de sesión del usuario, no todo
-        editor.remove("is_logged_in")
-        editor.remove("username")
-        editor.remove("email")
-        editor.remove("login_time")
-        editor.apply()
-
-        Toast.makeText(this, getString(R.string.logout_success), Toast.LENGTH_SHORT).show() // ← INTERNACIONALIZADO
-
-        // Redirigir al login
-        val intent = Intent(this, LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-        finish()
+    // ✅ NUEVA FUNCIÓN: Iniciar slider automático
+    private fun startAutoSlider() {
+        isSliderActive = true
+        handler.removeCallbacks(sliderRunnable) // Limpiar cualquier callback previo
+        handler.postDelayed(sliderRunnable, sliderDelay)
     }
 
-    private fun setupBottomNavigation() {
-        val btnHome = findViewById<ImageButton>(R.id.btnHome)
-        val btnServices = findViewById<ImageButton>(R.id.btnServices)
-        val btnBookings = findViewById<ImageButton>(R.id.btnBookings)
-        val btnProfileNav = findViewById<ImageButton>(R.id.btnProfileNav)
-
-        // Home ya está activo
-        btnHome.setColorFilter(resources.getColor(android.R.color.holo_green_dark, theme))
-
-        btnServices.setOnClickListener {
-            val intent = Intent(this, ServiceDetailActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnBookings.setOnClickListener {
-            val intent = Intent(this, BookingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        btnProfileNav.setOnClickListener {
-            val intent = Intent(this, UserProfileActivity::class.java)
-            startActivity(intent)
-        }
+    // ✅ NUEVA FUNCIÓN: Pausar slider automático
+    private fun pauseAutoSlider() {
+        isSliderActive = false
+        handler.removeCallbacks(sliderRunnable)
     }
 
-    private fun setupRecentActivity() {
-        val recentActivities = createSampleActivities()
-        activityAdapter = ActivityAdapter(recentActivities)
+    private fun setupDots() {
+        dots = arrayOfNulls(sliderImages.size)
+        layoutDots.removeAllViews()
 
-        recentActivityRecyclerView.layoutManager = LinearLayoutManager(this)
-        recentActivityRecyclerView.adapter = activityAdapter
-
-        Log.d("DEBUG", "✅ Actividad reciente configurada con ${recentActivities.size} items")
-    }
-
-    private fun createSampleActivities(): List<ActivityItem> {
-        return listOf(
-            ActivityItem(
-                icon = android.R.drawable.ic_menu_edit,
-                title = getString(R.string.activity_service_booked), // ← INTERNACIONALIZADO
-                description = getString(R.string.activity_service_booked_desc), // ← INTERNACIONALIZADO
-                time = "2 hours ago",
-                type = ActivityType.BOOKING
-            ),
-            ActivityItem(
-                icon = android.R.drawable.ic_menu_save,
-                title = getString(R.string.activity_profile_updated), // ← INTERNACIONALIZADO
-                description = getString(R.string.activity_profile_updated_desc), // ← INTERNACIONALIZADO
-                time = "1 day ago",
-                type = ActivityType.PROFILE
-            ),
-            ActivityItem(
-                icon = android.R.drawable.ic_dialog_info,
-                title = getString(R.string.activity_welcome), // ← INTERNACIONALIZADO
-                description = getString(R.string.activity_welcome_desc), // ← INTERNACIONALIZADO
-                time = "2 days ago",
-                type = ActivityType.SYSTEM
+        for (i in dots.indices) {
+            dots[i] = ImageView(this)
+            dots[i]?.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.dot_inactive)
             )
-        )
+
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.setMargins(8, 0, 8, 0)
+            layoutDots.addView(dots[i], params)
+        }
+
+        setCurrentDot(0)
+    }
+
+    private fun setCurrentDot(position: Int) {
+        for (i in dots.indices) {
+            val drawable = if (i == position) {
+                R.drawable.dot_active
+            } else {
+                R.drawable.dot_inactive
+            }
+            dots[i]?.setImageResource(drawable)
+        }
+    }
+
+    private fun setupClickListeners() {
+        btnLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        setupUserInfo() // Actualizar info al volver
-        updateBottomNavigation()
+        // Reanudar slider cuando la app vuelve al frente
+        startAutoSlider()
     }
 
-    private fun updateBottomNavigation() {
-        // Resetear todos los colores
-        val buttons = listOf(
-            findViewById<ImageButton>(R.id.btnHome),
-            findViewById<ImageButton>(R.id.btnServices),
-            findViewById<ImageButton>(R.id.btnBookings),
-            findViewById<ImageButton>(R.id.btnProfileNav)
-        )
+    override fun onPause() {
+        super.onPause()
+        // Pausar slider cuando la app va a segundo plano
+        pauseAutoSlider()
+    }
 
-        buttons.forEach { button ->
-            button.setColorFilter(resources.getColor(android.R.color.darker_gray, theme))
-        }
-
-        // Marcar Home como activo
-        findViewById<ImageButton>(R.id.btnHome).setColorFilter(
-            resources.getColor(android.R.color.holo_green_dark, theme)
-        )
+    override fun onDestroy() {
+        super.onDestroy()
+        // Limpiar recursos
+        pauseAutoSlider()
     }
 }
