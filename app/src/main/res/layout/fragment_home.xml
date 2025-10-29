@@ -30,7 +30,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/tienda_logo"
+            android:src="@drawable/ic_launcher_foreground"
             android:contentDescription="@string/logo_tienda_desc" />
 
         <!-- Descripción -->
@@ -76,7 +76,7 @@
             android:layout_height="180dp"
             android:layout_marginTop="24dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/producto1"
+            android:src="@drawable/ic_launcher_foreground"
             android:contentDescription="@string/banner_tienda_desc" />
     </LinearLayout>
 </ScrollView>

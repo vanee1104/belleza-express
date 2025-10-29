@@ -29,8 +29,10 @@ class ServiceDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_service_detail)
 
         initViews()
-        setupServiceData()
         setupListeners()
+
+        // Mostrar datos de ejemplo
+        showSampleServiceData()
     }
 
     private fun initViews() {
@@ -42,29 +44,19 @@ class ServiceDetailActivity : AppCompatActivity() {
         btnBack = findViewById(R.id.btnBack)
     }
 
-    private fun setupServiceData() {
-        val service = intent.getParcelableExtra<Service>("service")
+    private fun showSampleServiceData() {
+        // Datos de ejemplo para el servicio
+        serviceImage.setImageResource(android.R.drawable.ic_menu_edit) // Icono genérico
+        serviceName.text = "Diseño Arquitectónico Residencial"
+        serviceDescription.text = "Servicio completo de diseño y planos para viviendas residenciales. Incluye consultoría, planos arquitectónicos y seguimiento del proyecto."
+        servicePrice.text = "$500.00"
 
-        service?.let { s ->
-            serviceImage.setImageResource(s.imageResId)
-            serviceName.text = s.name
-            serviceDescription.text = s.detailedDescription
-            servicePrice.text = "$${s.price}"
-
-            // Set up the booking button
-            btnBookService.text = "Reservar ${s.name} - $${s.price}"
-        } ?: run {
-            Toast.makeText(this, "Error loading service details", Toast.LENGTH_SHORT).show()
-            finish()
-        }
+        btnBookService.text = "Reservar Diseño Residencial - $500.00"
     }
 
     private fun setupListeners() {
         btnBookService.setOnClickListener {
-            val service = intent.getParcelableExtra<Service>("service")
-            service?.let { s ->
-                bookService(s)
-            }
+            bookService()
         }
 
         btnBack.setOnClickListener {
@@ -72,7 +64,7 @@ class ServiceDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun bookService(service: Service) {
+    private fun bookService() {
         // Show loading state
         btnBookService.isEnabled = false
         btnBookService.text = "Procesando..."
@@ -80,16 +72,15 @@ class ServiceDetailActivity : AppCompatActivity() {
         scope.launch {
             try {
                 // Simulate API call to book service
-                // Replace this with your actual Supabase booking logic
                 Thread.sleep(1000) // Simulate network delay
 
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = "Reservar ${service.name} - $${service.price}"
+                    btnBookService.text = "Reservar Diseño Residencial - $500.00"
 
                     Toast.makeText(
                         this@ServiceDetailActivity,
-                        "¡${service.name} reservado exitosamente!",
+                        "¡Servicio reservado exitosamente!",
                         Toast.LENGTH_LONG
                     ).show()
 
@@ -100,7 +91,7 @@ class ServiceDetailActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = "Reservar ${service.name} - $${service.price}"
+                    btnBookService.text = "Reservar Diseño Residencial - $500.00"
                     Toast.makeText(
                         this@ServiceDetailActivity,
                         "Error al reservar: ${e.message}",

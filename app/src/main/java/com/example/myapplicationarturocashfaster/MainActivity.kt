@@ -12,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -81,9 +79,9 @@ class MainActivity : AppCompatActivity() {
             tvDashboardUserEmail.text = email
             tvDashboardWelcome.text = "Welcome Back, $formattedUsername! 👋"
 
-            // Mostrar estadísticas
-            tvBookingsCount.text = "2" // Datos de ejemplo
-            tvServicesCount.text = Service.getSampleServices().size.toString()
+            // Mostrar estadísticas (datos de ejemplo)
+            tvBookingsCount.text = "2"
+            tvServicesCount.text = "5" // Número fijo en lugar de Service.getSampleServices().size
 
         } else {
             // Usuario no logueado - redirigir a login
@@ -94,7 +92,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadUserProfileImage() {
-        // Imagen de perfil genérica (puedes personalizar con imagen real del usuario)
+        // Imagen de perfil genérica
         val profileImageUrl = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
 
         Glide.with(this)
