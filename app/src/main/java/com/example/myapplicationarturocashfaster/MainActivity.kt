@@ -38,13 +38,8 @@ class MainActivity : AppCompatActivity() {
 
     private val sliderImages = intArrayOf(
         R.drawable.slider1,           // Tu imagen 1 del slider
-        R.drawable.slider1_interior,  // Tu imagen 2 del slider
         R.drawable.slider2,           // Tu imagen 3 del slider
-        R.drawable.slider2_interior,  // Tu imagen 4 del slider
         R.drawable.slider3,           // Tu imagen 5 del slider
-        R.drawable.slider3_interior,  // Tu imagen 6 del slider
-        R.drawable.slider4,           // Tu imagen 7 del slider
-        R.drawable.slider4_interior,  // Tu imagen 8 del slider
     )
 
     private var currentPage = 0

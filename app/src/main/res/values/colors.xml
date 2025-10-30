@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Existing colors -->
+    <!-- COLORES BASE (MANTENER) -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -9,29 +9,33 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Previously added colors -->
-    <color name="primary_color">@color/purple_500</color>
-    <color name="secondary_color">@color/teal_200</color>
+    <!-- NUEVOS COLORES BELLEZA -->
+    <color name="pink_primary">#E91E63</color>
+    <color name="pink_dark">#C2185B</color>
+    <color name="gold_accent">#FFC107</color>
+    <color name="purple_soft">#9C27B0</color>
+    <color name="white_cream">#FFF8F8</color>
+    <color name="gray_soft">#F5F5F5</color>
+
+    <!-- COLORES FUNCIONALES -->
+    <color name="primary_color">@color/pink_primary</color>
+    <color name="secondary_color">@color/gold_accent</color>
     <color name="orange">#FFFF9800</color>
     <color name="red">#FFF44336</color>
     <color name="gray_dark">#FF424242</color>
-
-    <!-- NEW missing colors from the latest error -->
     <color name="gray_medium">#FF757575</color>
     <color name="green">#FF4CAF50</color>
     <color name="blue">#FF2196F3</color>
     <color name="gray">#FF9E9E9E</color>
-
-    <!-- ADD these colors for ActivityAdapter -->
     <color name="green_700">#FF2E7D32</color>
-    <color name="booking_color">@color/purple_500</color>
-    <color name="profile_color">@color/teal_700</color>
+
+    <!-- COLORES PARA ACTIVITYADAPTER -->
+    <color name="booking_color">@color/pink_primary</color>
+    <color name="profile_color">@color/purple_soft</color>
     <color name="system_color">@color/black</color>
     <color name="payment_color">@color/green_700</color>
 
-    <!-- ⭐⭐ COLORES EXISTENTES ⭐⭐ -->
+    <!-- COLORES DE FONDO -->
     <color name="light_gray">#FFEEEEEE</color>
-
-    <!-- ⭐⭐ AGREGAR ESTE COLOR FALTANTE ⭐⭐ -->
     <color name="gray_light">#FFF5F5F5</color>
 </resources>

@@ -97,8 +97,8 @@
                 android:id="@+id/ivLogo"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:contentDescription="@string/logo_arquitech"
-                android:src="@drawable/logo_arquitech" />
+                android:contentDescription="@string/"
+                android:src="@drawable/logo_belleza" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/diseno"
+                            android:src="@drawable/tratamiento_depilacion"
                             android:scaleType="centerCrop"
                             android:contentDescription="@string/desc_servicio_diseno"
                             android:layout_marginBottom="12dp" />
@@ -227,7 +227,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/planos"
+                            android:src="@drawable/tratamiento_facial"
                             android:scaleType="centerCrop"
                             android:contentDescription="@string/desc_servicio_planos"
                             android:layout_marginBottom="12dp" />
@@ -271,7 +271,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/supervision"
+                            android:src="@drawable/tratamiento_masaje"
                             android:scaleType="centerCrop"
                             android:contentDescription="@string/desc_servicio_supervision"
                             android:layout_marginBottom="12dp" />
@@ -343,7 +343,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/ing_juan"
+                            android:src="@drawable/especialista1"
                             android:scaleType="centerCrop"
                             android:contentDescription="Arquitecto Juan"
                             android:layout_marginBottom="8dp" />
@@ -387,7 +387,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/ing_maria"
+                            android:src="@drawable/especialista2"
                             android:scaleType="centerCrop"
                             android:contentDescription="Ingeniera María"
                             android:layout_marginBottom="8dp" />
@@ -431,7 +431,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/ayud_carlos"
+                            android:src="@drawable/especialista3"
                             android:scaleType="centerCrop"
                             android:contentDescription="Ayudante Carlos"
                             android:layout_marginBottom="8dp" />

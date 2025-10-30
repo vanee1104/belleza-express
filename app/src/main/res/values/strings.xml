@@ -1,50 +1,50 @@
 <resources>
     <!-- Nombre de la app -->
-    <string name="app_name">ArquiTech</string>
+    <string name="app_name">Belleza Express</string>
 
     <string name="default_notification_channel_id">default_channel</string>
 
-    <string name="login">Login</string>
+    <string name="login">Iniciar Sesión</string>
     <string name="registrarse">Registrarse</string>
 
-    <string name="company_name">ArquiTech</string>
-    <string name="company_slogan">Soluciones Arquitectónicas Integrales</string>
-    <string name="logo_arquitech_desc">Logo de ArquiTech</string>
-    <string name="our_services">Nuestros Servicios</string>
-    <string name="our_team">Nuestro Equipo</string>
+    <string name="company_name">Belleza Express</string>
+    <string name="company_slogan">Tu belleza, nuestra pasión</string>
+    <string name="logo_arquitech_desc">Logo de Belleza Express</string>
+    <string name="our_services">Nuestros Tratamientos</string>
+    <string name="our_team">Nuestros Especialistas</string>
     <string name="login_register">Iniciar Sesión</string>
     <string name="my_account">Mi Cuenta</string>
-    <string name="hero_title">Transformamos tus Ideas en Realidad</string>
-    <string name="hero_subtitle">Diseño arquitectónico profesional y soluciones integrales</string>
+    <string name="hero_title">Realzamos tu Belleza Natural</string>
+    <string name="hero_subtitle">Tratamientos profesionales para cuidar de ti</string>
 
-    <!-- SERVICIOS -->
-    <string name="service_design">Diseño Arquitectónico</string>
-    <string name="service_plans">Planos Estructurales</string>
-    <string name="service_supervision">Supervisión de Obra</string>
-    <string name="service_consultancy">Consultoría</string>
+    <!-- SERVICIOS DE BELLEZA -->
+    <string name="service_design">Facial Premium</string>
+    <string name="service_plans">Masaje Relajante</string>
+    <string name="service_supervision">Depilación Láser</string>
+    <string name="service_consultancy">Manicure y Pedicure</string>
 
     <!-- Descripciones para imágenes de servicios -->
-    <string name="desc_servicio_diseno">Servicio de Diseño Arquitectónico</string>
-    <string name="desc_servicio_planos">Servicio de Planos Técnicos</string>
-    <string name="desc_servicio_supervision">Servicio de Supervisión de Obra</string>
+    <string name="desc_servicio_diseno">Tratamiento Facial Premium</string>
+    <string name="desc_servicio_planos">Sesión de Masaje Relajante</string>
+    <string name="desc_servicio_supervision">Sesión de Depilación Láser</string>
 
-    <string name="service_design_desc">Planos y diseño personalizado para tu proyecto</string>
-    <string name="service_plans_desc">Planos técnicos detallados y estructurales</string>
-    <string name="service_supervision_desc">Control y calidad en construcción</string>
-    <string name="service_consultancy_desc">Asesoría especializada por hora</string>
+    <string name="service_design_desc">Limpieza facial profunda y tratamiento rejuvenecedor</string>
+    <string name="service_plans_desc">Masaje terapéutico para aliviar tensiones y estrés</string>
+    <string name="service_supervision_desc">Tecnología láser para resultados duraderos</string>
+    <string name="service_consultancy_desc">Cuidado profesional de uñas y pies</string>
 
     <!-- EQUIPO -->
-    <string name="team_architect">Arquitecto Principal</string>
-    <string name="team_engineer">Ingeniero Estructural</string>
-    <string name="team_designer">Diseñador</string>
+    <string name="team_architect">Esteticista Principal</string>
+    <string name="team_engineer">Cosmetóloga</string>
+    <string name="team_designer">Masajista</string>
     <string name="team_assistant">Asistente</string>
 
     <!-- Descripciones para imágenes del equipo -->
-    <string name="desc_arquitecto_juan">Foto del Arquitecto Juan</string>
-    <string name="desc_ingeniero_maria">Foto de la Ingeniera María</string>
-    <string name="desc_ayudante_carlos">Foto del Ayudante Carlos</string>
+    <string name="desc_arquitecto_juan">Foto de la Esteticista Laura</string>
+    <string name="desc_ingeniero_maria">Foto de la Cosmetóloga Sofía</string>
+    <string name="desc_ayudante_carlos">Foto de la Asistente Ana</string>
 
-    <!-- DESCARGAS PARA ACCESIBILIDAD - NUEVAS -->
+    <!-- DESCARGAS PARA ACCESIBILIDAD -->
     <string name="desc_activity_icon">Icono de la actividad</string>
     <string name="desc_arrow_icon">Flecha hacia la derecha</string>
     <string name="desc_profile_image">Foto de perfil del usuario</string>
@@ -89,27 +89,27 @@
     <string name="register_error">Error en el registro: %s</string>
 
     <!-- Agregar estos strings -->
-    <string name="service_image_desc">Imagen del servicio</string>
-    <string name="team_member_desc">Foto del miembro del equipo</string>
+    <string name="service_image_desc">Imagen del tratamiento</string>
+    <string name="team_member_desc">Foto del especialista</string>
 
-    <string name="service_name_sample">Diseño Arquitectónico Residencial</string>
-    <string name="service_description_sample">Servicio completo de diseño y planos para viviendas residenciales. Incluye consultoría, planos arquitectónicos y seguimiento del proyecto.</string>
-    <string name="service_price_sample">$500.00</string>
-    <string name="btn_book_service_format">Reservar Diseño Residencial - %s</string>
+    <string name="service_name_sample">Facial Premium Rejuvenecedor</string>
+    <string name="service_description_sample">Tratamiento facial completo que incluye limpieza profunda, exfoliación, mascarilla rejuvenecedora y masaje facial. Ideal para revitalizar tu piel.</string>
+    <string name="service_price_sample">$80.000</string>
+    <string name="btn_book_service_format">Reservar Facial Premium - %s</string>
     <string name="processing">Procesando…</string>
-    <string name="booking_success">¡Servicio reservado exitosamente!</string>
+    <string name="booking_success">¡Tratamiento reservado exitosamente!</string>
     <string name="booking_error">Error al reservar: %s</string>
 
-    <!-- TEXTO PARA item_activity.xml - NUEVOS -->
+    <!-- TEXTO PARA item_activity.xml -->
     <string name="activity_title_default">Activity Title</string>
     <string name="activity_description_default">Activity Description</string>
     <string name="activity_time_default">2 hours ago</string>
 
     <!-- Descripciones e imágenes -->
-    <string name="logo_tienda_desc">Logo de la Tienda X</string>
-    <string name="banner_tienda_desc">Banner de promoción de Tienda X</string>
-    <string name="producto_foto_desc">Imagen del producto</string>
-    <string name="icono_producto_desc">Icono del producto</string>
+    <string name="logo_tienda_desc">Logo de Belleza Express</string>
+    <string name="banner_tienda_desc">Banner de promoción de Belleza Express</string>
+    <string name="producto_foto_desc">Imagen del tratamiento</string>
+    <string name="icono_producto_desc">Icono del tratamiento</string>
 
     <!-- Textos de navegación de fragments -->
     <string name="next">Siguiente</string>
@@ -130,42 +130,42 @@
     <string name="logout_success">Sesión cerrada exitosamente</string>
     <string name="yes">Sí</string>
     <string name="cancel">Cancelar</string>
-    <string name="please_login">Por favor inicia sesión para acceder al dashboard</string>
+    <string name="please_login">Por favor inicia sesión para acceder a tu perfil</string>
 
     <!-- ========== NUEVOS STRINGS PARA DASHBOARD ========== -->
     <!-- Dashboard Texts -->
-    <string name="welcome_back">¡Bienvenido de nuevo, %s! 👋</string>
+    <string name="welcome_back">¡Bienvenida de nuevo, %s! 💖</string>
     <string name="quick_actions">Acciones Rápidas</string>
     <string name="recent_activity">Actividad Reciente</string>
-    <string name="book_service">Reservar Servicio</string>
-    <string name="my_bookings">Mis Reservas</string>
-    <string name="bookings">Reservas</string>
-    <string name="services">Servicios</string>
+    <string name="book_service">Reservar Tratamiento</string>
+    <string name="my_bookings">Mis Citas</string>
+    <string name="bookings">Citas</string>
+    <string name="services">Tratamientos</string>
 
     <!-- Nuevos strings para landing page -->
-    <string name="logo_arquitech">Logo Arquitech</string>
-    <string name="arquitech">ARQUITECH</string>
-    <string name="soluciones_arquitectonicas">Soluciones Arquitectónicas</string>
-    <string name="nuestros_servicios">🔧 NUESTROS SERVICIOS</string>
-    <string name="diseno">Diseño</string>
-    <string name="planos">Planos</string>
-    <string name="supervision">Supervisión</string>
-    <string name="precio_500">$500</string>
-    <string name="precio_300">$300</string>
-    <string name="precio_700">$700</string>
-    <string name="nuestro_equipo">👥 NUESTRO EQUIPO</string>
-    <string name="arq">Arq.</string>
-    <string name="ing">Ing.</string>
-    <string name="ayud">Ayud.</string>
-    <string name="juan">Juan</string>
-    <string name="maria">María</string>
-    <string name="carlos">Carlos</string>
+    <string name="logo_arquitech">Logo Belleza Express</string>
+    <string name="arquitech">BELLEZA EXPRESS</string>
+    <string name="soluciones_arquitectonicas">Tu belleza, nuestra pasión</string>
+    <string name="nuestros_servicios">💄 NUESTROS TRATAMIENTOS</string>
+    <string name="diseno">Facial</string>
+    <string name="planos">Masaje</string>
+    <string name="supervision">Depilación</string>
+    <string name="precio_500">$80.000</string>
+    <string name="precio_300">$50.000</string>
+    <string name="precio_700">$120.000</string>
+    <string name="nuestro_equipo">👩‍⚕️ NUESTRO EQUIPO</string>
+    <string name="arq">Estet.</string>
+    <string name="ing">Cosmet.</string>
+    <string name="ayud">Asist.</string>
+    <string name="juan">Laura</string>
+    <string name="maria">Sofía</string>
+    <string name="carlos">Ana</string>
 
     <!-- Activity Items -->
-    <string name="activity_service_booked">Consulta de Servicio Reservada</string>
+    <string name="activity_service_booked">Tratamiento Reservado</string>
     <string name="activity_profile_updated">Perfil Actualizado</string>
-    <string name="activity_welcome">¡Bienvenido a ArquiTech!</string>
-    <string name="activity_service_booked_desc">Servicio de Diseño Arquitectónico</string>
+    <string name="activity_welcome">¡Bienvenida a Belleza Express!</string>
+    <string name="activity_service_booked_desc">Facial Premium Rejuvenecedor</string>
     <string name="activity_profile_updated_desc">Tu información de perfil fue actualizada</string>
     <string name="activity_welcome_desc">Tu cuenta fue creada exitosamente</string>
 
