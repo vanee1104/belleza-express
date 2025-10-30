@@ -31,9 +31,7 @@ class ServiceDetailActivity : AppCompatActivity() {
 
         initViews()
         setupListeners()
-        setupBackPressedHandler() // ← NUEVO MÉTODO
-
-        // Mostrar datos de ejemplo
+        setupBackPressedHandler()
         showSampleServiceData()
     }
 
@@ -46,7 +44,6 @@ class ServiceDetailActivity : AppCompatActivity() {
         btnBack = findViewById(R.id.btnBack)
     }
 
-    // NUEVO: Manejo moderno de back press
     private fun setupBackPressedHandler() {
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -57,13 +54,14 @@ class ServiceDetailActivity : AppCompatActivity() {
     }
 
     private fun showSampleServiceData() {
-        // Datos de ejemplo para el servicio
-        serviceImage.setImageResource(android.R.drawable.ic_menu_edit) // Icono genérico
-        serviceName.text = getString(R.string.service_name_sample)
-        serviceDescription.text = getString(R.string.service_description_sample)
-        servicePrice.text = getString(R.string.service_price_sample)
+        // ✅ ACTUALIZADO: Datos de ejemplo mejorados
+        serviceImage.setImageResource(android.R.drawable.ic_menu_edit) // Puedes cambiar por una imagen específica
+        serviceName.text = "Diseño Arquitectónico Premium"
+        serviceDescription.text = "Servicio completo de diseño arquitectónico profesional incluyendo planos detallados, renders 3D y asesoría personalizada. Perfecto para proyectos residenciales y comerciales."
+        servicePrice.text = "$500.00"
 
-        btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
+        // ✅ ACTUALIZADO: Texto del botón más descriptivo
+        btnBookService.text = "Reservar por $500.00"
     }
 
     private fun setupListeners() {
@@ -72,41 +70,39 @@ class ServiceDetailActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
-            finish() // ← CAMBIADO: usar finish() en lugar de onBackPressed()
+            finish()
         }
     }
 
     private fun bookService() {
-        // Show loading state
         btnBookService.isEnabled = false
-        btnBookService.text = getString(R.string.processing)
+        btnBookService.text = "Procesando reserva..."
 
         scope.launch {
             try {
-                // Simulate API call to book service
-                Thread.sleep(1000) // Simulate network delay
+                Thread.sleep(1000)
 
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
+                    btnBookService.text = "Reservar por $500.00"
 
                     Toast.makeText(
                         this@ServiceDetailActivity,
-                        getString(R.string.booking_success),
+                        "✅ Servicio reservado exitosamente",
                         Toast.LENGTH_LONG
                     ).show()
 
-                    // Navigate to booking confirmation or back to main
-                    val intent = Intent(this@ServiceDetailActivity, UserDashboardActivity::class.java)
+                    // Navegar al perfil del usuario después de reservar
+                    val intent = Intent(this@ServiceDetailActivity, UserProfileActivity::class.java)
                     startActivity(intent)
                 }
             } catch (e: Exception) {
                 runOnUiThread {
                     btnBookService.isEnabled = true
-                    btnBookService.text = getString(R.string.btn_book_service_format, getString(R.string.service_price_sample))
+                    btnBookService.text = "Reservar por $500.00"
                     Toast.makeText(
                         this@ServiceDetailActivity,
-                        getString(R.string.booking_error, e.message ?: "Error desconocido"),
+                        "❌ Error al reservar: ${e.message ?: "Error desconocido"}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

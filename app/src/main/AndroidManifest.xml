@@ -19,7 +19,6 @@
         android:required="false" />
 
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -34,7 +33,7 @@
         tools:targetApi="31"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
-        <!-- NUEVA MAIN ACTIVITY (Pantalla de Inicio) -->
+        <!-- MAIN ACTIVITY (Pantalla de Inicio) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -48,29 +47,11 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <!-- Deep Linking (mantener igual) -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" />
-                <data android:host="arturocashfaster.com" />
-                <data android:pathPrefix="/app" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="arturocash" />
-                <data android:host="main" />
-            </intent-filter>
         </activity>
 
-        <!-- DASHBOARD ACTIVITY (antes MainActivity) -->
+        <!-- USER PROFILE ACTIVITY (antes DashboardActivity) -->
         <activity
-            android:name=".DashboardActivity"
+            android:name=".UserProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
@@ -92,14 +73,6 @@
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
             android:windowSoftInputMode="adjustResize|stateVisible" />
 
-        <!-- USER DASHBOARD ACTIVITY (¿duplicado? verificar si es necesario) -->
-        <activity
-            android:name=".UserDashboardActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplicationArturoCashFaster"
-            android:windowSoftInputMode="adjustResize" />
-
         <!-- SERVICE DETAIL ACTIVITY -->
         <activity
             android:name=".ServiceDetailActivity"
@@ -108,25 +81,17 @@
             android:theme="@style/Theme.MyApplicationArturoCashFaster"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- BOOKINGS ACTIVITY -->
-        <activity
-            android:name=".BookingsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplicationArturoCashFaster"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- USER PROFILE ACTIVITY -->
-        <activity
-            android:name=".UserProfileActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplicationArturoCashFaster"
-            android:windowSoftInputMode="adjustResize" />
 
         <!-- SETTINGS ACTIVITY -->
         <activity
             android:name=".SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyApplicationArturoCashFaster" />
+
+        <!-- CONTACT ACTIVITY (NUEVO) -->
+        <activity
+            android:name=".ContactActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplicationArturoCashFaster" />
@@ -141,5 +106,4 @@
             android:resource="@xml/network_security_config" />
 
     </application>
-
 </manifest>

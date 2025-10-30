@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToBookings() {
         val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
         if (isLoggedIn) {
-            val intent = Intent(this, BookingsActivity::class.java)
+            val intent = Intent(this, ContactActivity::class.java)
             startActivity(intent)
         } else {
             // Si no está logueado, ir al login primero
