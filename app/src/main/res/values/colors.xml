@@ -29,6 +29,11 @@
     <color name="gray">#FF9E9E9E</color>
     <color name="green_700">#FF2E7D32</color>
 
+    <color name="pastel_pink">#FFF0F5</color> <!-- Lavender Blush -->
+    <color name="pastel_lavender">#E6E6FA</color> <!-- Lavender -->
+    <color name="pastel_rose">#FFD1DC</color> <!-- Pastel Pink -->
+    <color name="pastel_mauve">#E0B0FF</color> <!-- Mauve -->
+
     <!-- COLORES PARA ACTIVITYADAPTER -->
     <color name="booking_color">@color/pink_primary</color>
     <color name="profile_color">@color/purple_soft</color>

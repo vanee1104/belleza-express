@@ -1,15 +1,15 @@
 <resources>
     <!-- Nombre de la app -->
-    <string name="app_name">Belleza Express</string>
+    <string name="app_name">Makeup Magic</string>
 
     <string name="default_notification_channel_id">default_channel</string>
 
     <string name="login">Iniciar Sesión</string>
     <string name="registrarse">Registrarse</string>
 
-    <string name="company_name">Belleza Express</string>
+    <string name="company_name">MAKEUP MAGIC</string>
     <string name="company_slogan">Tu belleza, nuestra pasión</string>
-    <string name="logo_arquitech_desc">Logo de Belleza Express</string>
+    <string name="logo_arquitech_desc">Logo de Makeup Magic</string>
     <string name="our_services">Nuestros Tratamientos</string>
     <string name="our_team">Nuestros Especialistas</string>
     <string name="login_register">Iniciar Sesión</string>
@@ -106,8 +106,8 @@
     <string name="activity_time_default">2 hours ago</string>
 
     <!-- Descripciones e imágenes -->
-    <string name="logo_tienda_desc">Logo de Belleza Express</string>
-    <string name="banner_tienda_desc">Banner de promoción de Belleza Express</string>
+    <string name="logo_tienda_desc">Logo de Makeup Magic</string>
+    <string name="banner_tienda_desc">Banner de promoción de Makeup Magic</string>
     <string name="producto_foto_desc">Imagen del tratamiento</string>
     <string name="icono_producto_desc">Icono del tratamiento</string>
 
@@ -143,8 +143,8 @@
     <string name="services">Tratamientos</string>
 
     <!-- Nuevos strings para landing page -->
-    <string name="logo_arquitech">Logo Belleza Express</string>
-    <string name="arquitech">BELLEZA EXPRESS</string>
+    <string name="logo_arquitech">Logo Makeup Magic</string>
+    <string name="arquitech">MAKEUP MAGIC</string>
     <string name="soluciones_arquitectonicas">Tu belleza, nuestra pasión</string>
     <string name="nuestros_servicios">💄 NUESTROS TRATAMIENTOS</string>
     <string name="diseno">Facial</string>
@@ -164,7 +164,7 @@
     <!-- Activity Items -->
     <string name="activity_service_booked">Tratamiento Reservado</string>
     <string name="activity_profile_updated">Perfil Actualizado</string>
-    <string name="activity_welcome">¡Bienvenida a Belleza Express!</string>
+    <string name="activity_welcome">¡Bienvenida a Makeup Magic!</string>
     <string name="activity_service_booked_desc">Facial Premium Rejuvenecedor</string>
     <string name="activity_profile_updated_desc">Tu información de perfil fue actualizada</string>
     <string name="activity_welcome_desc">Tu cuenta fue creada exitosamente</string>
