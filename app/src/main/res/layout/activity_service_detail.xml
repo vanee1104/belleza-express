@@ -12,7 +12,43 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Imagen del Servicio Mejorada -->
+        <!-- Header con Título y Volver -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <!-- ✅ CORREGIDO: ImageButton en lugar de Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_revert"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/purple_500"
+                android:contentDescription="Volver"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Detalle del Servicio"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                android:gravity="center" />
+
+            <!-- Espacio para mantener simetría -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <!-- Imagen del Servicio -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -25,7 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:contentDescription="@string/producto_foto_desc"
+                android:contentDescription="Imagen del servicio"
+                android:src="@drawable/tratamiento_facial"
                 android:background="@color/light_gray" />
 
         </androidx.cardview.widget.CardView>
@@ -49,12 +86,12 @@
                     android:id="@+id/service_detail_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Diseño Arquitectónico"
-                    android:textSize="26sp"
+                    android:text="Tratamiento Facial"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/purple_500"
                     android:gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    android:layout_marginBottom="16dp" />
 
                 <!-- Precio Destacado -->
                 <LinearLayout
@@ -62,27 +99,55 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/price_background"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Precio:"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textColor="@color/teal_700"
                         android:layout_marginEnd="8dp" />
 
                     <TextView
                         android:id="@+id/service_detail_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$500.00"
-                        android:textSize="22sp"
+                        android:text="$120.000"
+                        android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/teal_700"
-                        android:background="@drawable/price_background"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="4dp" />
+                        android:textColor="@color/teal_700" />
+
+                </LinearLayout>
+
+                <!-- Duración -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp"
+                    android:padding="12dp"
+                    android:background="@color/light_gray">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_lock_idle_alarm"
+                        android:tint="@color/purple_500"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:id="@+id/service_detail_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Duración: 60 minutos"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -90,7 +155,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Descripción del Servicio"
+                    android:text="Descripción"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -100,8 +165,8 @@
                     android:id="@+id/service_detail_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Servicio completo de diseño arquitectónico profesional incluyendo planos detallados, renders 3D y asesoría personalizada. Perfecto para proyectos residenciales y comerciales."
-                    android:textSize="16sp"
+                    android:text="Servicio profesional de tratamiento facial que incluye limpieza profunda, exfoliación, hidratación y mascarilla personalizada según tu tipo de piel."
+                    android:textSize="15sp"
                     android:textColor="@color/gray_dark"
                     android:lineSpacingExtra="6dp"
                     android:textAlignment="viewStart" />
@@ -127,11 +192,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Características Incluidas"
+                    android:text="Lo que incluye tu servicio"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="12dp" />
+                    android:textColor="@color/purple_500"
+                    android:layout_marginBottom="16dp" />
 
                 <!-- Característica 1 -->
                 <LinearLayout
@@ -139,22 +204,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="12dp">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_edit"
                         android:tint="@color/purple_500"
-                        android:layout_marginEnd="12dp" />
+                        android:layout_marginEnd="16dp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Planos arquitectónicos detallados"
+                        android:text="Limpieza facial profunda"
                         android:textSize="14sp"
-                        android:textColor="@color/gray_dark" />
+                        android:textColor="@color/gray_dark"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -164,22 +230,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="12dp">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_gallery"
                         android:tint="@color/purple_500"
-                        android:layout_marginEnd="12dp" />
+                        android:layout_marginEnd="16dp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Renders 3D de alta calidad"
+                        android:text="Exfoliación suave"
                         android:textSize="14sp"
-                        android:textColor="@color/gray_dark" />
+                        android:textColor="@color/gray_dark"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -189,22 +256,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="12dp">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_my_calendar"
                         android:tint="@color/purple_500"
-                        android:layout_marginEnd="12dp" />
+                        android:layout_marginEnd="16dp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Asesoría personalizada"
+                        android:text="Hidratación intensiva"
                         android:textSize="14sp"
-                        android:textColor="@color/gray_dark" />
+                        android:textColor="@color/gray_dark"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -216,25 +284,190 @@
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@android:drawable/ic_menu_save"
                         android:tint="@color/purple_500"
-                        android:layout_marginEnd="12dp" />
+                        android:layout_marginEnd="16dp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Entrega en formato digital"
+                        android:text="Mascarilla personalizada"
                         android:textSize="14sp"
-                        android:textColor="@color/gray_dark" />
+                        android:textColor="@color/gray_dark"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <!-- Servicios Relacionados -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Otros Servicios"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"
+            android:layout_marginBottom="12dp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:paddingVertical="8dp">
+
+            <LinearLayout
+                android:id="@+id/layoutRelatedServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <!-- Servicio 1 - Tratamiento Facial -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/tratamiento_facial"
+                            android:scaleType="centerCrop"
+                            android:background="@color/light_gray"
+                            android:padding="16dp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tratamiento Facial"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/purple_500"
+                            android:gravity="center"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$120.000"
+                            android:textSize="12sp"
+                            android:textColor="@color/teal_700"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Servicio 2 - Depilación -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/tratamiento_depilacion"
+                            android:scaleType="centerCrop"
+                            android:background="@color/light_gray"
+                            android:padding="16dp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Depilación"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/purple_500"
+                            android:gravity="center"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$80.000"
+                            android:textSize="12sp"
+                            android:textColor="@color/teal_700"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Servicio 3 - Masaje -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/tratamiento_masaje"
+                            android:scaleType="centerCrop"
+                            android:background="@color/light_gray"
+                            android:padding="16dp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Masaje Relajante"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/purple_500"
+                            android:gravity="center"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$150.000"
+                            android:textSize="12sp"
+                            android:textColor="@color/teal_700"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
         <!-- Botones de Acción -->
         <LinearLayout
@@ -248,28 +481,36 @@
                 android:id="@+id/btnBookService"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reservar Servicio"
-                android:textSize="18sp"
+                android:text="Reservar Este Servicio"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:padding="16dp"
+                android:padding="18dp"
                 android:backgroundTint="@color/purple_500"
                 android:textColor="@color/white"
-                android:drawablePadding="8dp"
-                android:drawableStart="@android:drawable/ic_menu_add"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Botón Contactar -->
+            <Button
+                android:id="@+id/btnContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contactar para Más Info"
+                android:textSize="14sp"
+                android:padding="16dp"
+                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
                 android:layout_marginBottom="12dp" />
 
             <!-- Botón Volver -->
             <Button
-                android:id="@+id/btnBack"
+                android:id="@+id/btnBackBottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Volver a Servicios"
-                android:textSize="16sp"
-                android:padding="14dp"
+                android:textSize="14sp"
+                android:padding="16dp"
                 android:backgroundTint="@color/gray_light"
-                android:textColor="@color/gray_dark"
-                android:drawablePadding="8dp"
-                android:drawableStart="@android:drawable/ic_menu_revert" />
+                android:textColor="@color/gray_dark" />
 
         </LinearLayout>
 
