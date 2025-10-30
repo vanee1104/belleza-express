@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/pastel_pink"
     android:fillViewport="true">
 
     <LinearLayout
@@ -15,7 +15,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@color/pastel_lavender">
 
             <!-- Layout para usuario NO logueado -->
             <LinearLayout
@@ -31,24 +32,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="@string/login"
-                    android:textColor="@color/purple_500"
-                    android:textSize="14sp" />
+                    android:text="INICIAR SESIÓN"
+                    android:textColor="@color/pastel_mauve"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:background="@color/gray" />
+                    android:background="@color/pastel_mauve"
+                    android:layout_marginHorizontal="8dp" />
 
                 <Button
                     android:id="@+id/btnRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="@string/registrarse"
-                    android:textColor="@color/purple_500"
-                    android:textSize="14sp" />
+                    android:text="REGISTRARSE"
+                    android:textColor="@color/pastel_mauve"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -67,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="¡Hola, Usuario!"
-                    android:textColor="@color/purple_500"
+                    android:textColor="@color/pastel_mauve"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="12dp" />
@@ -78,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:text="Cerrar Sesión"
-                    android:textColor="@color/teal_700"
+                    android:textColor="@color/pastel_rose"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -91,43 +95,59 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="32dp">
+            android:padding="32dp"
+            android:background="@color/white">
 
+            <!-- ✅ LOGO MÁS GRANDE -->
             <ImageView
                 android:id="@+id/ivLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:contentDescription="@string/"
+                android:layout_width="wrap_content"
+                android:layout_height="198dp"
+                android:contentDescription="Logo Makeup Magic"
                 android:src="@drawable/logo_belleza" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/arquitech"
-                android:textColor="@color/purple_500"
+                android:text="MAKEUP MAGIC"
+                android:textColor="@color/pastel_rose"
                 android:textSize="36sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/soluciones_arquitectonicas"
-                android:textColor="@color/teal_700"
-                android:textSize="16sp" />
+                android:text="Tu belleza, nuestra pasión"
+                android:textColor="@color/pastel_mauve"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
 
-        <!-- Slider de Proyectos -->
+        <!-- Slider de Tratamientos -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✨ NUESTROS TRATAMIENTOS"
+                android:textColor="@color/pastel_mauve"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerSlider"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="220dp" />
 
             <LinearLayout
                 android:id="@+id/layoutDots"
@@ -144,18 +164,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp"
+            android:background="@color/pastel_lavender_light">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="8dp"
                 android:drawableStart="@android:drawable/ic_menu_edit"
-                android:gravity="start"
-                android:text="@string/nuestros_servicios"
-                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="💄 SERVICIOS DESTACADOS"
+                android:textColor="@color/pastel_mauve"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,14 +185,15 @@
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <!-- Servicio 1: Diseño -->
+                <!-- Servicio 1: Facial -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -179,86 +202,45 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <!-- IMAGEN DEL SERVICIO DE DISEÑO -->
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/tratamiento_depilacion"
-                            android:scaleType="centerCrop"
-                            android:contentDescription="@string/desc_servicio_diseno"
-                            android:layout_marginBottom="12dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/diseno"
-                            android:textColor="@color/purple_500"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/precio_500"
-                            android:textColor="@color/teal_700"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Servicio 2: Planos -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <!-- IMAGEN DEL SERVICIO DE PLANOS -->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/tratamiento_facial"
                             android:scaleType="centerCrop"
-                            android:contentDescription="@string/desc_servicio_planos"
-                            android:layout_marginBottom="12dp" />
+                            android:contentDescription="Tratamiento Facial"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/pastel_lavender"
+                            android:padding="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/planos"
-                            android:textColor="@color/purple_500"
+                            android:text="Facial"
+                            android:textColor="@color/pastel_rose"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/precio_300"
-                            android:textColor="@color/teal_700"
-                            android:textSize="14sp" />
+                            android:text="$120.000"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Servicio 3: Supervisión -->
+                <!-- Servicio 2: Masaje -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -267,29 +249,78 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <!-- IMAGEN DEL SERVICIO DE SUPERVISIÓN -->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/tratamiento_masaje"
                             android:scaleType="centerCrop"
-                            android:contentDescription="@string/desc_servicio_supervision"
-                            android:layout_marginBottom="12dp" />
+                            android:contentDescription="Masaje Relajante"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/pastel_lavender"
+                            android:padding="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/supervision"
-                            android:textColor="@color/purple_500"
+                            android:text="Masaje"
+                            android:textColor="@color/pastel_rose"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/precio_700"
-                            android:textColor="@color/teal_700"
-                            android:textSize="14sp" />
+                            android:text="$150.000"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Servicio 3: Depilación -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/tratamiento_depilacion"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="Depilación"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/pastel_lavender"
+                            android:padding="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Depilación"
+                            android:textColor="@color/pastel_rose"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$80.000"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -299,23 +330,23 @@
 
         </LinearLayout>
 
-        <!-- Nuestro Equipo CON IMÁGENES -->
+        <!-- Nuestro Equipo -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp"
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="8dp"
-                android:drawableStart="@android:drawable/ic_menu_my_calendar"
-                android:gravity="start"
-                android:text="@string/nuestro_equipo"
-                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="👩‍💼 NUESTRAS ESPECIALISTAS"
+                android:textColor="@color/pastel_mauve"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -323,14 +354,15 @@
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <!-- Miembro 1: Arq. Juan -->
+                <!-- Especialista 1 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/pastel_lavender_light">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -339,42 +371,46 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <!-- IMAGEN DEL ARQUITECTO -->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/especialista1"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Arquitecto Juan"
-                            android:layout_marginBottom="8dp" />
+                            android:contentDescription="Especialista en Maquillaje"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/white"
+                            android:padding="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/arq"
-                            android:textColor="@color/purple_500"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/juan"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:text="Maquilladora Profesional"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ana Rodríguez"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Miembro 2: Ing. María -->
+                <!-- Especialista 2 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/pastel_lavender_light">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -383,42 +419,46 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <!-- IMAGEN DE LA INGENIERA -->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/especialista2"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Ingeniera María"
-                            android:layout_marginBottom="8dp" />
+                            android:contentDescription="Especialista en Skincare"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/white"
+                            android:padding="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/ing"
-                            android:textColor="@color/purple_500"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/maria"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:text="Especialista en Skincare"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="María González"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Miembro 3: Ayud. Carlos -->
+                <!-- Especialista 3 -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/pastel_lavender_light">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -427,29 +467,32 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <!-- IMAGEN DEL AYUDANTE -->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/especialista3"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Ayudante Carlos"
-                            android:layout_marginBottom="8dp" />
+                            android:contentDescription="Especialista en Depilación"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/white"
+                            android:padding="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/ayud"
-                            android:textColor="@color/purple_500"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/carlos"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:text="Especialista en Depilación"
+                            android:textColor="@color/pastel_mauve"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Laura Martínez"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
 
                     </LinearLayout>
 
@@ -459,16 +502,15 @@
 
         </LinearLayout>
 
-        <!-- ✅ CORREGIDO: Navegación Inferior FUERA de las tarjetas -->
+        <!-- Navegación Inferior -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/white"
+            android:background="@color/pastel_lavender"
             android:elevation="8dp"
-            android:paddingVertical="12dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:paddingVertical="16dp"
+            android:layout_marginTop="16dp">
 
             <Button
                 android:id="@+id/btnNavServices"
@@ -478,9 +520,10 @@
                 android:text="Servicios"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/pastel_mauve"
                 android:drawableTop="@android:drawable/ic_menu_search"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/pastel_mauve" />
 
             <Button
                 android:id="@+id/btnNavBookings"
@@ -490,9 +533,10 @@
                 android:text="CONTACTENOS"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/pastel_mauve"
                 android:drawableTop="@android:drawable/ic_menu_agenda"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/pastel_mauve" />
 
             <Button
                 android:id="@+id/btnNavProfile"
@@ -502,9 +546,10 @@
                 android:text="Perfil"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/pastel_mauve"
                 android:drawableTop="@android:drawable/ic_menu_myplaces"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/pastel_mauve" />
 
         </LinearLayout>
 
