@@ -32,8 +32,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="INICIAR SESIÓN"
-                    android:textColor="@color/pastel_mauve"
+                    android:text="🎀 INICIAR SESIÓN"
+                    android:textColor="#CD8DD5"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -49,8 +49,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="REGISTRARSE"
-                    android:textColor="@color/pastel_mauve"
+                    android:text="👑 REGISTRARSE"
+                    android:textColor="#920C8F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                     android:id="@+id/tvWelcomeUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="¡Hola, Usuario!"
+                    android:text="👋 ¡Hola, Usuario!"
                     android:textColor="@color/pastel_mauve"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="Cerrar Sesión"
+                    android:text="🚪 Cerrar Sesión"
                     android:textColor="@color/pastel_rose"
                     android:textSize="12sp" />
 
@@ -90,76 +90,45 @@
         </RelativeLayout>
 
         <!-- Logo y Título -->
+
+        <!-- Nuestros Servicios DESTACADOS (AHORA PRIMERO) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="32dp"
-            android:background="@color/white">
+            android:padding="32dp">
 
             <!-- ✅ LOGO MÁS GRANDE -->
+
             <ImageView
                 android:id="@+id/ivLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="198dp"
-                android:contentDescription="Logo Makeup Magic"
+                android:contentDescription="💄 Logo Belleza Express"
                 android:src="@drawable/logo_belleza" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MAKEUP MAGIC"
-                android:textColor="@color/pastel_rose"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="💄 MAGIC MAKEUP ✨"
+                android:textColor="#A0397F"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tu belleza, nuestra pasión"
-                android:textColor="@color/pastel_mauve"
+                android:layout_marginTop="8dp"
+                android:text="🌟 Resalta Tu Belleza 💖"
+                android:textColor="#B956CA"
                 android:textSize="18sp"
-                android:textStyle="italic"
-                android:layout_marginTop="8dp" />
+                android:textStyle="italic" />
 
         </LinearLayout>
 
-        <!-- Slider de Tratamientos -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/white">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="✨ NUESTROS TRATAMIENTOS"
-                android:textColor="@color/pastel_mauve"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerSlider"
-                android:layout_width="match_parent"
-                android:layout_height="220dp" />
-
-            <LinearLayout
-                android:id="@+id/layoutDots"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="8dp" />
-
-        </LinearLayout>
-
-        <!-- Nuestros Servicios -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -170,11 +139,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="8dp"
-                android:drawableStart="@android:drawable/ic_menu_edit"
                 android:gravity="center"
-                android:text="💄 SERVICIOS DESTACADOS"
-                android:textColor="@color/pastel_mauve"
+                android:text="💅 SERVICIOS DESTACADOS 🌟"
+                android:textColor="#7E165D"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="16dp" />
@@ -207,7 +174,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/tratamiento_facial"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Tratamiento Facial"
+                            android:contentDescription="🧖‍♀️ Tratamiento Facial"
                             android:layout_marginBottom="12dp"
                             android:background="@color/pastel_lavender"
                             android:padding="8dp" />
@@ -215,7 +182,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Facial"
+                            android:text="🧖‍♀️ Facial"
                             android:textColor="@color/pastel_rose"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -223,8 +190,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$120.000"
-                            android:textColor="@color/pastel_mauve"
+                            android:text="💰 $120.000"
+                            android:textColor="@color/eyeshadow_purple"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -252,17 +219,17 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/tratamiento_masaje"
-                            android:scaleType="centerCrop"
-                            android:contentDescription="Masaje Relajante"
                             android:layout_marginBottom="12dp"
                             android:background="@color/pastel_lavender"
-                            android:padding="8dp" />
+                            android:contentDescription="💆 Masaje Relajante"
+                            android:padding="8dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/tratamiento_masaje" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Masaje"
+                            android:text="💆 Masaje"
                             android:textColor="@color/pastel_rose"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -270,8 +237,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$150.000"
-                            android:textColor="@color/pastel_mauve"
+                            android:text="💰 $150.000"
+                            android:textColor="@color/eyeshadow_purple"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -301,7 +268,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/tratamiento_depilacion"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Depilación"
+                            android:contentDescription="✨ Depilación"
                             android:layout_marginBottom="12dp"
                             android:background="@color/pastel_lavender"
                             android:padding="8dp" />
@@ -309,7 +276,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Depilación"
+                            android:text="✨ Depilación"
                             android:textColor="@color/pastel_rose"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -317,8 +284,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$80.000"
-                            android:textColor="@color/pastel_mauve"
+                            android:text="💰 $80.000"
+                            android:textColor="@color/eyeshadow_purple"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -330,19 +297,54 @@
 
         </LinearLayout>
 
+        <!-- Slider de Tratamientos (AHORA EN LA MITAD) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/white"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✨ DESCUBRE MÁS TRATAMIENTOS ✨"
+                android:textColor="#DD7CED"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerSlider"
+                android:layout_width="match_parent"
+                android:layout_height="220dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutDots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
         <!-- Nuestro Equipo -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="👩‍💼 NUESTRAS ESPECIALISTAS"
+                android:text="👩‍💼 NUESTRAS ESPECIALISTAS 🌸"
                 android:textColor="@color/pastel_mauve"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -376,7 +378,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/especialista1"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Especialista en Maquillaje"
+                            android:contentDescription="🎨 Especialista en Maquillaje"
                             android:layout_marginBottom="8dp"
                             android:background="@color/white"
                             android:padding="4dp" />
@@ -384,7 +386,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Maquilladora Profesional"
+                            android:text="🎨 Maquilladora Profesional"
                             android:textColor="@color/pastel_mauve"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -392,8 +394,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ana Rodríguez"
-                            android:textColor="@color/black"
+                            android:text="👤 Ana Rodríguez"
+                            android:textColor="#8943C3"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginTop="4dp" />
@@ -424,7 +426,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/especialista2"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Especialista en Skincare"
+                            android:contentDescription="🌟 Especialista en Skincare"
                             android:layout_marginBottom="8dp"
                             android:background="@color/white"
                             android:padding="4dp" />
@@ -432,7 +434,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Especialista en Skincare"
+                            android:text="🌟 Especialista en Skincare"
                             android:textColor="@color/pastel_mauve"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -440,8 +442,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="María González"
-                            android:textColor="@color/black"
+                            android:text="👤 María González"
+                            android:textColor="#AE3BB4"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginTop="4dp" />
@@ -472,7 +474,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/especialista3"
                             android:scaleType="centerCrop"
-                            android:contentDescription="Especialista en Depilación"
+                            android:contentDescription="✨ Especialista en Depilación"
                             android:layout_marginBottom="8dp"
                             android:background="@color/white"
                             android:padding="4dp" />
@@ -480,7 +482,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Especialista en Depilación"
+                            android:text="✨ Especialista en Depilación"
                             android:textColor="@color/pastel_mauve"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -488,8 +490,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Laura Martínez"
-                            android:textColor="@color/black"
+                            android:text="👤 Laura Martínez"
+                            android:textColor="#C759A5"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginTop="4dp" />
@@ -517,11 +519,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Servicios"
+                android:text="💅 Servicios"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/pastel_mauve"
-                android:drawableTop="@android:drawable/ic_menu_search"
+                android:textColor="@color/eyeshadow_purple"
                 android:drawablePadding="4dp"
                 android:drawableTint="@color/pastel_mauve" />
 
@@ -530,11 +531,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="CONTACTENOS"
+                android:text="📞 CONTÁCTENOS"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/pastel_mauve"
-                android:drawableTop="@android:drawable/ic_menu_agenda"
+                android:textColor="@color/eyeshadow_purple"
                 android:drawablePadding="4dp"
                 android:drawableTint="@color/pastel_mauve" />
 
@@ -543,11 +543,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Perfil"
+                android:text="👤 Perfil"
                 android:textSize="12sp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@color/pastel_mauve"
-                android:drawableTop="@android:drawable/ic_menu_myplaces"
+                android:textColor="@color/eyeshadow_purple"
                 android:drawablePadding="4dp"
                 android:drawableTint="@color/pastel_mauve" />
 

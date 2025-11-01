@@ -1,176 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Nombre de la app -->
-    <string name="app_name">Makeup Magic</string>
+    <!-- Títulos principales -->
+    <string name="app_name">💄 Magical Makeup ✨</string>
+    <string name="login_title">🎀 Iniciar Sesión 💋</string>
+    <string name="register_title">👑 Registrarse 🌸</string>
 
-    <string name="default_notification_channel_id">default_channel</string>
+    <!-- Textos de formulario -->
+    <string name="email_hint">📧 Correo electrónico</string>
+    <string name="password_hint">🔒 Contraseña</string>
+    <string name="identification_hint">🆔 Número de identificación</string>
+    <string name="username_hint">👤 Nombre de usuario</string>
+    <string name="confirm_password_hint">🔐 Confirmar contraseña</string>
 
-    <string name="login">Iniciar Sesión</string>
-    <string name="registrarse">Registrarse</string>
+    <!-- Botones -->
+    <string name="login_button">💖 Iniciar Sesión</string>
+    <string name="register_button">🌟 Crear Cuenta</string>
 
-    <string name="company_name">MAKEUP MAGIC</string>
-    <string name="company_slogan">Tu belleza, nuestra pasión</string>
-    <string name="logo_arquitech_desc">Logo de Makeup Magic</string>
-    <string name="our_services">Nuestros Tratamientos</string>
-    <string name="our_team">Nuestros Especialistas</string>
-    <string name="login_register">Iniciar Sesión</string>
-    <string name="my_account">Mi Cuenta</string>
-    <string name="hero_title">Realzamos tu Belleza Natural</string>
-    <string name="hero_subtitle">Tratamientos profesionales para cuidar de ti</string>
+    <!-- Enlaces -->
+    <string name="no_account">¿No tienes cuenta? </string>
+    <string name="register_link">✨ Regístrate aquí</string>
+    <string name="already_have_account">¿Ya tienes cuenta? </string>
+    <string name="login_link">💝 Inicia sesión</string>
 
-    <!-- SERVICIOS DE BELLEZA -->
-    <string name="service_design">Facial Premium</string>
-    <string name="service_plans">Masaje Relajante</string>
-    <string name="service_supervision">Depilación Láser</string>
-    <string name="service_consultancy">Manicure y Pedicure</string>
+    <!-- STRINGS FALTANTES - PERFIL DE USUARIO -->
+    <string name="desc_profile_image">👤 Imagen de perfil del usuario</string>
+    <string name="welcome_back">👋 ¡Bienvenida de nuevo!</string>
+    <string name="logout">🚪 Cerrar Sesión</string>
+    <string name="bookings">📅 Mis Citas</string>
+    <string name="services">💅 Servicios</string>
+    <string name="quick_actions">⚡ Acciones Rápidas</string>
+    <string name="book_service">💖 Agendar Servicio</string>
+    <string name="recent_activity">🕒 Actividad Reciente</string>
 
-    <!-- Descripciones para imágenes de servicios -->
-    <string name="desc_servicio_diseno">Tratamiento Facial Premium</string>
-    <string name="desc_servicio_planos">Sesión de Masaje Relajante</string>
-    <string name="desc_servicio_supervision">Sesión de Depilación Láser</string>
+    <!-- STRINGS FALTANTES - ITEM ACTIVITY -->
+    <string name="desc_activity_icon">📊 Icono de actividad</string>
+    <string name="activity_title_default">📋 Nueva Actividad</string>
+    <string name="activity_description_default">📝 Descripción de la actividad</string>
+    <string name="activity_time_default">🕐 Hace un momento</string>
 
-    <string name="service_design_desc">Limpieza facial profunda y tratamiento rejuvenecedor</string>
-    <string name="service_plans_desc">Masaje terapéutico para aliviar tensiones y estrés</string>
-    <string name="service_supervision_desc">Tecnología láser para resultados duraderos</string>
-    <string name="service_consultancy_desc">Cuidado profesional de uñas y pies</string>
+    <!-- STRINGS FALTANTES - LOGIN ACTIVITY -->
+    <string name="error_empty_fields">⚠️ Por favor, completa todos los campos</string>
+    <string name="error_invalid_email">📧 Por favor, ingresa un email válido</string>
+    <string name="logging_in">⏳ Iniciando sesión...</string>
+    <string name="login_success">✅ ¡Inicio de sesión exitoso! 💖</string>
+    <string name="login_error">❌ Error al iniciar sesión</string>
+    <string name="generic_error">❌ Error</string>
+    <string name="unknown_error">❌ Error desconocido</string>
 
-    <!-- EQUIPO -->
-    <string name="team_architect">Esteticista Principal</string>
-    <string name="team_engineer">Cosmetóloga</string>
-    <string name="team_designer">Masajista</string>
-    <string name="team_assistant">Asistente</string>
+    <!-- STRINGS FALTANTES - REGISTER ACTIVITY -->
+    <string name="error_passwords_not_match">🔒 Las contraseñas no coinciden</string>
+    <string name="error_password_length">🔒 La contraseña debe tener al menos 6 caracteres</string>
+    <string name="registering">⏳ Creando cuenta...</string>
+    <string name="register_success">✅ ¡Cuenta creada exitosamente! 🌟</string>
+    <string name="register_error">❌ Error al crear la cuenta</string>
 
-    <!-- Descripciones para imágenes del equipo -->
-    <string name="desc_arquitecto_juan">Foto de la Esteticista Laura</string>
-    <string name="desc_ingeniero_maria">Foto de la Cosmetóloga Sofía</string>
-    <string name="desc_ayudante_carlos">Foto de la Asistente Ana</string>
+    <!-- STRINGS FALTANTES - USER PROFILE ACTIVITY -->
+    <string name="please_login">🔐 Por favor, inicia sesión</string>
+    <string name="logout_confirmation_title">🚪 Cerrar Sesión</string>
+    <string name="logout_confirmation_message">¿Estás segura de que quieres cerrar sesión? 💔</string>
+    <string name="yes">✅ Sí</string>
+    <string name="cancel">❌ Cancelar</string>
+    <string name="logout_success">👋 ¡Sesión cerrada exitosamente!</string>
+    <string name="activity_service_booked">💅 Servicio Agendado</string>
+    <string name="activity_service_booked_desc">Has agendado un servicio de belleza 💖</string>
+    <string name="activity_profile_updated">✏️ Perfil Actualizado</string>
+    <string name="activity_profile_updated_desc">Tu información de perfil ha sido actualizada ✨</string>
+    <string name="activity_welcome">👋 ¡Bienvenida!</string>
+    <string name="activity_welcome_desc">Te damos la bienvenida a Belleza Express 🌸</string>
 
-    <!-- DESCARGAS PARA ACCESIBILIDAD -->
-    <string name="desc_activity_icon">Icono de la actividad</string>
-    <string name="desc_arrow_icon">Flecha hacia la derecha</string>
-    <string name="desc_profile_image">Foto de perfil del usuario</string>
-    <string name="desc_settings_icon">Icono de configuración</string>
-    <string name="desc_notification_icon">Icono de notificaciones</string>
-    <string name="desc_menu_icon">Icono de menú</string>
-    <string name="desc_search_icon">Icono de búsqueda</string>
-    <string name="desc_back_icon">Icono de retroceso</string>
-    <string name="desc_close_icon">Icono de cerrar</string>
-    <string name="desc_delete_icon">Icono de eliminar</string>
-    <string name="desc_edit_icon">Icono de editar</string>
+    <!-- Mensajes de la app -->
+    <string name="welcome_message">👋 ¡Bienvenida a Belleza Express! 💅</string>
+    <string name="booking_success">✅ Cita agendada exitosamente 💄</string>
+    <string name="makeup_services">🎨 Servicios de Maquillaje 💋</string>
+    <string name="skincare_services">🧴 Cuidado de la Piel ✨</string>
+    <string name="hair_services">💇 Servicios de Cabello 🌺</string>
 
-    <string name="login_title">Iniciar Sesión</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Contraseña</string>
-    <string name="login_button">Iniciar Sesión</string>
-    <string name="logging_in">Iniciando sesión…</string>
-    <string name="no_account">¿No tienes cuenta?</string>
-    <string name="register_link">Regístrate</string>
+    <!-- Categorías -->
+    <string name="category_makeup">💄 Maquillaje</string>
+    <string name="category_skincare">🌟 Skincare</string>
+    <string name="category_hair">💇 Cabello</string>
+    <string name="category_nails">💅 Uñas</string>
+    <string name="category_spa">🧖‍♀️ Spa</string>
 
-    <!-- Mensajes de validación y error -->
-    <string name="error_empty_fields">Por favor, completa todos los campos</string>
-    <string name="error_invalid_email">Por favor, ingresa un email válido</string>
-    <string name="login_success">Inicio de sesión exitoso</string>
-    <string name="login_error">Error en el inicio de sesión: %s</string>
-    <string name="generic_error">Error: %s</string>
-    <string name="unknown_error">Error desconocido</string>
+    <!-- Estados -->
+    <string name="status_pending">⏳ Pendiente</string>
+    <string name="status_confirmed">✅ Confirmada</string>
+    <string name="status_completed">🎉 Completada</string>
+    <string name="status_cancelled">❌ Cancelada</string>
 
-    <string name="register_title">Registro</string>
-    <string name="identification_hint">Identificación</string>
-    <string name="username_hint">Nombre de Usuario</string>
-    <string name="confirm_password_hint">Confirmar Contraseña</string>
-    <string name="register_button">Registrarse</string>
-    <string name="registering">Registrando…</string>
-    <string name="already_have_account">¿Ya tienes cuenta?</string>
-    <string name="login_link">Inicia Sesión</string>
+    <!-- Acciones -->
+    <string name="action_book_now">💖 Agendar Ahora</string>
+    <string name="action_see_more">👀 Ver Más</string>
+    <string name="action_contact">📞 Contactar</string>
+    <string name="action_share">📤 Compartir</string>
 
-    <!-- Mensajes de validación y error para registro -->
-    <string name="error_passwords_not_match">Las contraseñas no coinciden</string>
-    <string name="error_password_length">La contraseña debe tener al menos 6 caracteres</string>
-    <string name="register_success">Registro exitoso</string>
-    <string name="register_error">Error en el registro: %s</string>
+    <!-- Textos adicionales para funcionalidades -->
+    <string name="edit_profile">✏️ Editar Perfil</string>
+    <string name="my_appointments">📋 Mis Citas</string>
+    <string name="payment_methods">💳 Métodos de Pago</string>
+    <string name="notifications">🔔 Notificaciones</string>
+    <string name="settings">⚙️ Ajustes</string>
+    <string name="help">❓ Ayuda</string>
+    <string name="about">ℹ️ Acerca de</string>
 
-    <!-- Agregar estos strings -->
-    <string name="service_image_desc">Imagen del tratamiento</string>
-    <string name="team_member_desc">Foto del especialista</string>
+    <!-- Servicios específicos -->
+    <string name="service_makeup_bridal">👰 Maquillaje Novias</string>
+    <string name="service_makeup_event">🎉 Maquillaje para Eventos</string>
+    <string name="service_facial">🧖‍♀️ Facial Limpieza</string>
+    <string name="service_manicure">💅 Manicure</string>
+    <string name="service_pedicure">🦶 Pedicure</string>
+    <string name="service_haircut">✂️ Corte de Cabello</string>
+    <string name="service_color">🎨 Coloración</string>
 
-    <string name="service_name_sample">Facial Premium Rejuvenecedor</string>
-    <string name="service_description_sample">Tratamiento facial completo que incluye limpieza profunda, exfoliación, mascarilla rejuvenecedora y masaje facial. Ideal para revitalizar tu piel.</string>
-    <string name="service_price_sample">$80.000</string>
-    <string name="btn_book_service_format">Reservar Facial Premium - %s</string>
-    <string name="processing">Procesando…</string>
-    <string name="booking_success">¡Tratamiento reservado exitosamente!</string>
-    <string name="booking_error">Error al reservar: %s</string>
+    <!-- Placeholders -->
+    <string name="placeholder_search">🔍 Buscar servicios...</string>
+    <string name="placeholder_name">👤 Ingresa tu nombre</string>
+    <string name="placeholder_phone">📱 Número de teléfono</string>
+    <string name="placeholder_address">🏠 Dirección</string>
 
-    <!-- TEXTO PARA item_activity.xml -->
-    <string name="activity_title_default">Activity Title</string>
-    <string name="activity_description_default">Activity Description</string>
-    <string name="activity_time_default">2 hours ago</string>
+    <!-- Mensajes de error -->
+    <string name="error_required">⚠️ Este campo es requerido</string>
+    <string name="error_email">📧 Email inválido</string>
+    <string name="error_password">🔒 Contraseña muy corta</string>
+    <string name="error_network">📡 Error de conexión</string>
+    <string name="error_general">❌ Ocurrió un error</string>
 
-    <!-- Descripciones e imágenes -->
-    <string name="logo_tienda_desc">Logo de Makeup Magic</string>
-    <string name="banner_tienda_desc">Banner de promoción de Makeup Magic</string>
-    <string name="producto_foto_desc">Imagen del tratamiento</string>
-    <string name="icono_producto_desc">Icono del tratamiento</string>
+    <!-- Mensajes de éxito -->
+    <string name="success_saved">✅ Guardado exitosamente</string>
+    <string name="success_updated">✅ Actualizado exitosamente</string>
+    <string name="success_deleted">✅ Eliminado exitosamente</string>
 
-    <!-- Textos de navegación de fragments -->
-    <string name="next">Siguiente</string>
-    <string name="previous">Anterior</string>
-    <string name="lorem_ipsum">Esta es una descripción de ejemplo (Lorem ipsum).</string>
+    <!-- Títulos de secciones -->
+    <string name="section_popular_services">🔥 Servicios Populares</string>
+    <string name="section_recommended">⭐ Recomendados para ti</string>
+    <string name="section_promotions">🎊 Promociones</string>
+    <string name="section_testimonials">💬 Testimonios</string>
 
-    <!-- Etiquetas de fragments -->
-    <string name="first_fragment_label">Primer Fragmento</string>
-    <string name="second_fragment_label">Segundo Fragmento</string>
+    <!-- Textos adicionales para diálogos y notificaciones -->
+    <string name="loading">⏳ Cargando...</string>
+    <string name="success">✅ Éxito</string>
+    <string name="warning">⚠️ Advertencia</string>
+    <string name="info">ℹ️ Información</string>
+    <string name="confirm">✅ Confirmar</string>
+    <string name="delete">🗑️ Eliminar</string>
+    <string name="save">💾 Guardar</string>
+    <string name="update">🔄 Actualizar</string>
 
-    <!-- Menú principal -->
-    <string name="action_settings">Configuración</string>
+    <!-- Textos de navegación -->
+    <string name="nav_home">🏠 Inicio</string>
+    <string name="nav_services">💅 Servicios</string>
+    <string name="nav_bookings">📅 Citas</string>
+    <string name="nav_profile">👤 Perfil</string>
+    <string name="nav_settings">⚙️ Ajustes</string>
 
-    <!-- Logout -->
-    <string name="logout">Cerrar Sesión</string>
-    <string name="logout_confirmation_title">Cerrar Sesión</string>
-    <string name="logout_confirmation_message">¿Estás seguro de que quieres cerrar sesión?</string>
-    <string name="logout_success">Sesión cerrada exitosamente</string>
-    <string name="yes">Sí</string>
-    <string name="cancel">Cancelar</string>
-    <string name="please_login">Por favor inicia sesión para acceder a tu perfil</string>
+    <!-- Textos de tiempo -->
+    <string name="today">📅 Hoy</string>
+    <string name="yesterday">📅 Ayer</string>
+    <string name="this_week">📅 Esta semana</string>
+    <string name="this_month">📅 Este mes</string>
 
-    <!-- ========== NUEVOS STRINGS PARA DASHBOARD ========== -->
-    <!-- Dashboard Texts -->
-    <string name="welcome_back">¡Bienvenida de nuevo, %s! 💖</string>
-    <string name="quick_actions">Acciones Rápidas</string>
-    <string name="recent_activity">Actividad Reciente</string>
-    <string name="book_service">Reservar Tratamiento</string>
-    <string name="my_bookings">Mis Citas</string>
-    <string name="bookings">Citas</string>
-    <string name="services">Tratamientos</string>
+    <!-- Textos de precio -->
+    <string name="price_free">🆓 Gratis</string>
+    <string name="price_from">💰 Desde</string>
+    <string name="currency">💲</string>
 
-    <!-- Nuevos strings para landing page -->
-    <string name="logo_arquitech">Logo Makeup Magic</string>
-    <string name="arquitech">MAKEUP MAGIC</string>
-    <string name="soluciones_arquitectonicas">Tu belleza, nuestra pasión</string>
-    <string name="nuestros_servicios">💄 NUESTROS TRATAMIENTOS</string>
-    <string name="diseno">Facial</string>
-    <string name="planos">Masaje</string>
-    <string name="supervision">Depilación</string>
-    <string name="precio_500">$80.000</string>
-    <string name="precio_300">$50.000</string>
-    <string name="precio_700">$120.000</string>
-    <string name="nuestro_equipo">👩‍⚕️ NUESTRO EQUIPO</string>
-    <string name="arq">Estet.</string>
-    <string name="ing">Cosmet.</string>
-    <string name="ayud">Asist.</string>
-    <string name="juan">Laura</string>
-    <string name="maria">Sofía</string>
-    <string name="carlos">Ana</string>
+    <!-- Textos de rating -->
+    <string name="rating">⭐ Calificación</string>
+    <string name="reviews">💬 Reseñas</string>
+    <string name="no_reviews">📝 Sin reseñas aún</string>
 
-    <!-- Activity Items -->
-    <string name="activity_service_booked">Tratamiento Reservado</string>
-    <string name="activity_profile_updated">Perfil Actualizado</string>
-    <string name="activity_welcome">¡Bienvenida a Makeup Magic!</string>
-    <string name="activity_service_booked_desc">Facial Premium Rejuvenecedor</string>
-    <string name="activity_profile_updated_desc">Tu información de perfil fue actualizada</string>
-    <string name="activity_welcome_desc">Tu cuenta fue creada exitosamente</string>
-
-    <!-- Time formats -->
-    <string name="time_hours_ago">hace %d horas</string>
-    <string name="time_days_ago">hace %d días</string>
-    <string name="time_just_now">ahora mismo</string>
+    <!-- Textos de disponibilidad -->
+    <string name="available">✅ Disponible</string>
+    <string name="not_available">❌ No disponible</string>
+    <string name="busy">⏰ Ocupado</string>
 </resources>

@@ -9,24 +9,32 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- NUEVOS COLORES BELLEZA -->
-    <color name="pink_primary">#E91E63</color>
-    <color name="pink_dark">#C2185B</color>
-    <color name="gold_accent">#FFC107</color>
-    <color name="purple_soft">#9C27B0</color>
+    <!-- NUEVA PALETA DE COLORES BELLEZA CON EMOJIS -->
+    <color name="pink_primary">#FF6B8E</color> <!-- Rosa vibrante -->
+    <color name="pink_dark">#D81B60</color>
+    <color name="gold_accent">#FFD700</color> <!-- Dorado más brillante -->
+    <color name="purple_soft">#BA68C8</color> <!-- Lila suave -->
     <color name="white_cream">#FFF8F8</color>
     <color name="gray_soft">#F5F5F5</color>
 
-    <color name="pastel_pink">#FFF0F5</color>
-    <color name="pastel_lavender">#E6E6FA</color>
+    <!-- COLORES PASTEL MEJORADOS -->
+    <color name="pastel_pink">#FFE8F5</color>
+    <color name="pastel_lavender">#F3E5F5</color>
     <color name="pastel_lavender_light">#F5F0FF</color>
     <color name="pastel_rose">#FFD1DC</color>
-    <color name="pastel_mauve">#E0B0FF</color>
-    <color name="pastel_mauve_dark">#C895FF</color>
+    <color name="pastel_mauve">#E1BEE7</color>
+    <color name="pastel_mauve_dark">#CE93D8</color>
     <color name="whatsapp_green">#25D366</color>
 
+    <!-- NUEVOS COLORES BELLEZA -->
+    <color name="lipstick_red">#E91E63</color> <!-- Rojo labial -->
+    <color name="eyeshadow_purple">#9C27B0</color> <!-- Sombra púrpura -->
+    <color name="blush_pink">#F8BBD0</color> <!-- Rubor rosado -->
+    <color name="nude_beige">#F5E6D3</color> <!-- Color nude -->
+    <color name="mascara_black">#212121</color> <!-- Negro mascara -->
+
     <!-- COLORES FUNCIONALES -->
-    <color name="primary_color">@color/pink_primary</color>
+    <color name="primary_color">@color/lipstick_red</color>
     <color name="secondary_color">@color/gold_accent</color>
     <color name="orange">#FFFF9800</color>
     <color name="red">#FFF44336</color>
@@ -38,9 +46,9 @@
     <color name="green_700">#FF2E7D32</color>
 
     <!-- COLORES PARA ACTIVITYADAPTER -->
-    <color name="booking_color">@color/pink_primary</color>
-    <color name="profile_color">@color/purple_soft</color>
-    <color name="system_color">@color/black</color>
+    <color name="booking_color">@color/lipstick_red</color>
+    <color name="profile_color">@color/eyeshadow_purple</color>
+    <color name="system_color">@color/mascara_black</color>
     <color name="payment_color">@color/green_700</color>
 
     <!-- COLORES DE FONDO -->

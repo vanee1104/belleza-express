@@ -20,7 +20,7 @@
             android:text="@string/register_title"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/eyeshadow_purple"
             android:layout_marginBottom="30dp" />
 
         <!-- Identification Input -->
@@ -32,8 +32,8 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black">
+            app:boxStrokeColor="@color/eyeshadow_purple"
+            app:hintTextColor="@color/eyeshadow_purple">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etIdentification"
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/identification_hint"
                 android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/mascara_black"
+                android:textColorHint="@color/eyeshadow_purple" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,8 +55,8 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black">
+            app:boxStrokeColor="@color/eyeshadow_purple"
+            app:hintTextColor="@color/eyeshadow_purple">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUsername"
@@ -64,8 +64,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/username_hint"
                 android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/mascara_black"
+                android:textColorHint="@color/eyeshadow_purple" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,9 +78,10 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
-            app:endIconMode="clear_text">
+            app:boxStrokeColor="@color/eyeshadow_purple"
+            app:hintTextColor="@color/eyeshadow_purple"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/eyeshadow_purple">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -88,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/mascara_black"
+                android:textColorHint="@color/eyeshadow_purple" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,9 +103,10 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
-            app:endIconMode="password_toggle">
+            app:boxStrokeColor="@color/eyeshadow_purple"
+            app:hintTextColor="@color/eyeshadow_purple"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/eyeshadow_purple">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -112,8 +114,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/mascara_black"
+                android:textColorHint="@color/eyeshadow_purple" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,9 +128,10 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
-            app:endIconMode="password_toggle">
+            app:boxStrokeColor="@color/eyeshadow_purple"
+            app:hintTextColor="@color/eyeshadow_purple"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/eyeshadow_purple">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmPassword"
@@ -136,8 +139,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/mascara_black"
+                android:textColorHint="@color/eyeshadow_purple" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,9 +164,10 @@
             android:text="@string/register_button"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/eyeshadow_purple"
             android:textColor="@color/white"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:drawablePadding="8dp"/>
 
         <!-- Login Link -->
         <LinearLayout
@@ -176,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/already_have_account"
-                android:textColor="@color/black"
+                android:textColor="@color/mascara_black"
                 android:textSize="14sp" />
 
             <TextView
@@ -184,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_link"
-                android:textColor="@color/black"
+                android:textColor="@color/eyeshadow_purple"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:clickable="true"

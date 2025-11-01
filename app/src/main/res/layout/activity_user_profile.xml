@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:background="@color/pastel_lavender"
+            android:background="@color/blush_pink"
             android:padding="20dp"
             android:layout_marginBottom="24dp"
             android:elevation="4dp">
@@ -112,7 +112,7 @@
                         android:text="2"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:textColor="@color/pastel_rose"
+                        android:textColor="@color/eyeshadow_purple"
                         android:layout_marginBottom="4dp" />
 
                     <TextView
@@ -150,7 +150,7 @@
                         android:text="5"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:textColor="@color/pastel_mauve"
+                        android:textColor="@color/eyeshadow_purple"
                         android:layout_marginBottom="4dp" />
 
                     <TextView
@@ -173,7 +173,7 @@
             android:text="Navegación Rápida"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/pastel_rose"
+            android:textColor="#EB4E74"
             android:layout_marginBottom="16dp" />
 
         <GridLayout
@@ -208,7 +208,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_search"
-                        android:tint="@color/pastel_rose" />
+                        android:tint="#BD3B5B" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_agenda"
-                        android:tint="@color/pastel_mauve" />
+                        android:tint="#AB48D9" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -284,7 +284,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_view"
-                        android:tint="@color/pastel_rose" />
+                        android:tint="#C331A8" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -322,7 +322,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_preferences"
-                        android:tint="@color/pastel_mauve" />
+                        android:tint="#D11FBA" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -345,7 +345,7 @@
             android:text="@string/quick_actions"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/pastel_rose"
+            android:textColor="#BA4B65"
             android:layout_marginBottom="16dp" />
 
         <LinearLayout
@@ -375,7 +375,7 @@
                 android:layout_weight="1"
                 android:text="CONTACTENOS"
                 android:layout_marginStart="8dp"
-                android:background="@color/pastel_mauve"
+                android:background="@color/blue"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:drawablePadding="8dp"
@@ -390,7 +390,7 @@
             android:text="@string/recent_activity"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/pastel_rose"
+            android:textColor="#903244"
             android:layout_marginBottom="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
